@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
+<icons>
+	<description>
+		Torba János kedvenc könyvjelzői. Bookmarks to favorit pages of János Torba.
+	</description>
+	<ogurl>http://torba.hu/janos/bookmarks.xml</ogurl>
+	<icon>
+		<picture>pictures/kickassapp.png</picture>
+		<title>KickAssApp</title>
+		<link>javascript:var%20KICKASSVERSION='2.0';var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='//hi.kickassapp.com/kickass.js';void(0);</link>
+	</icon>
+	<icon>
+		<picture>pictures/xkcd.png</picture>
+		<title>XKCD</title>
+		<link>http://xkcd.com</link>
+	</icon>
+	<icon>
+		<picture>pictures/radioeger.png</picture>
+		<title>RádióEger</title>
+		<link>http://radioeger.hu/</link>
+	</icon>
+	<icon>
+		<picture>pictures/simplyrain.png</picture>
+		<title>SimplyRain</title>
+		<link>http://rain.simplynoise.com/</link>
+	</icon>
+	<icon>
+		<picture>pictures/views.png</picture>
+		<title>Kutyasétáltatás</title>
+		<link>https://goo.gl/5itQxo</link>
+	</icon>	<icon>
+		<picture>pictures/photosphere.png</picture>
+		<title>Viewer</title>
+		<link>http://photosphereviewer.net/</link>
+	</icon>
+	<icon>
+		<picture>pictures/youtube.png</picture>
+		<title>Downloader</title>
+		<link>http://rg3.github.io/youtube-dl/</link>
+	</icon>
+	<icon>
+		<picture>pictures/gtimereport.png</picture>
+		<title>Report</title>
+		<link>https://www.gtimereport.com/</link>
+	</icon>
+	<icon>
+		<picture>pictures/simpsonsfamily.png</picture>
+		<title>Simpsons</title>
+		<link>http://simpsonreszek.info</link>
+	</icon>
+	<icon>
+		<picture>pictures/shift.png</picture>
+		<title>Shift</title>
+		<link>http://www.vivalagames.com/play/shift/fullscreen.php</link>
+	</icon>
+	<icon>
+		<picture>pictures/accuweather.png</picture>
+		<title>Eger</title>
+		<link>http://www.accuweather.com/hu/hu/eger/188467/hourly-weather-forecast/188467</link>
+	</icon>
+	<icon>
+		<picture>pictures/prayasyougo.png</picture>
+		<title>Prayers</title>
+		<link>http://www.pray-as-you-go.org/home/</link>
+	</icon>
+	<icon>
+		<picture>pictures/palferi.png</picture>
+		<title>PalFeri</title>
+		<link>http://www.palferi.hu/hanganyagok</link>
+	</icon>
+	<icon>
+		<picture>pictures/bookmarks.png</picture>
+		<title>2Shared</title>
+		<link>http://www.2shared.com/</link>
+	</icon>
+	<icon>
+		<picture>pictures/bookmarks.png</picture>
+		<title>Super Boot Manager</title>
+		<link>http://www.omgubuntu.co.uk/2011/05/super-boot-manager-eases-burg-grub-plymouth-tweaking-pains</link>
+	</icon>
+	<icon>
+		<picture>pictures/bookmarks.png</picture>
+		<title>Free MultiBoot Loaders</title>
+		<link>http://www.thefreecountry.com/utilities/multi-boot-managers.shtml</link>
+	</icon>
+	<icon>
+		<picture>pictures/bookmarks.png</picture>
+		<title>Win7GRUB</title>
+		<link>http://askubuntu.com/questions/135272/how-to-boot-into-windows-7-when-grub-is-installed-in-the-windows-partition</link>
+	</icon>
+	<icon>
+		<picture>pictures/back.png</picture>
+		<title>Back</title>
+		<link>index.xml</link>
+	</icon>
+</icons>

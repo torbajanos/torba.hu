@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="index.xslt"?>
+<users>
+	<user>
+		<picture>pictures/torbajanos.jpg</picture>
+		<name>János</name>
+		<link>http://torba.hu/janos/</link>
+	</user>
+<!--
+	<user>
+		<picture>pictures/takeoff.jpg</picture>
+		<name>Tamás</name>
+		<link>http://torba.hu/tamas/</link>
+	</user>
+	<user>
+		<picture>pictures/magellantucana.jpg</picture>
+		<name>Tibor</name>
+		<link>http://torba.hu/tibor/</link>
+	</user>
+	<user>
+		<picture>pictures/architect.jpg</picture>
+		<name>Veronika</name>
+		<link>http://torba.hu/veronika/</link>
+	</user>
+-->
+</users>

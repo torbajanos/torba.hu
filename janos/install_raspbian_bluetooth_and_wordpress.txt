@@ -1,0 +1,89 @@
+#===========================================================================#
+# Installation of my favorite Raspbian apps to a Raspberry PI 2 Model B     #
+#===========================================================================#
+
+# Enter this command to the Terminal to install the following apps
+# wget -O - "http://torba.hu/janos/install_raspbian_apps.txt"|sh
+
+Date: 2016-03-23
+
+#Downloading NOOBS and ApplePI-Baker: 10 min
+#Format microSD card                   1 min
+#Copy NOOBS to micro SD card:         10 min
+#Installing Raspbian with NOOBS:      20 min
+sudo apt-get update                 # 10 min
+sudo apt-get upgrade -y             # 45 min, 49 updated
+
+sudo apt-get install -y samba bluez blueman nano lsof tightvncserver x11vnc
+sudo apt-get install -y iceweasel vlc nautilus gimp bitlbee xchat ntfs-3g transmission
+sudo apt-get install -y gedit gedit-plugins
+sudo apt-get install -y claws-mail-gdata-plugin claws-mail-fancy-plugin claws-mail-feeds-reader
+sudo apt-get install -y claws-mail-gdata-plugin claws-mail-mailmbox-plugin claws-mail-multi-notifier
+sudo apt-get install -y mozplugger freerdp-x11 tcpdump
+sudo apt-get install -y mplayer2 xine-ui evince xpaint html2ps juk minidlna
+sudo apt-get install -y mysql-client php5 libapache2-mod-php5 php5-mysql
+sudo apt-get install -y git
+sudo apt-get install -y kodi
+sudo apt-get install -y openvpn easy-rsa
+#sudo apt-get install -y eclipse
+#sudo apt-get install -y mysql-workbench
+
+#sudo apt-get install -y apache2 mysql-server
+#sudo apt-get install -y bind9 bind9utils  bind9-host bind9-doc bindgraph dnsutils # Internet Domain Name Server
+#0 5 * * * rsync -av --delete /media/USBHDD1/shares /media/USBHDD2/shares/
+
+exit
+
+
+
+#============================+
+# Install Bluetooth Keyboard +
+#============================+
+# http://www.kosagi.com/w/index.php?title=Hacks,_hints,_and_tricks#Bluetooth_Pairing_.28use_this_one.29
+# https://communities.intel.com/thread/61548?tstart=0
+# https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=99326
+
+pi@raspberrypi:~ $ crontab -l
+*/2 * * * * /home/pi/connect_bluetooth_keyboard.sh
+pi@raspberrypi:~ $ cat connect_bluetooth_keyboard.sh 
+sudo bluetoothctl -a <<<"pair 0C:FC:85:23:68:0C"
+
+
+#===================+
+# Install Wordpress +
+#===================+
+# https://www.raspberrypi.org/learning/lamp-web-server-with-wordpress/worksheet/
+
+cd /var/www/html/
+sudo chown pi: .
+sudo rm *
+wget http://wordpress.org/latest.tar.gz
+tar xzf latest.tar.gz
+mv wordpress/* .
+rm -rf wordpress latest.tar.gz
+mysql -uroot
+
+#create database wordpress;
+#ctrl+D
+
+#http://192.168.0.14
+#Database Name:      wordpress
+#User Name:          root
+#Password:           <YOUR PASSWORD>
+#Database Host:      localhost
+#Table Prefix:       wp_
+
+#http://192.168.0.14
+
+sudo a2enmod rewrite
+
+echo >/var/www/html/.htaccess "<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>"
+
+# You'll also need to tell the virtual host serving the site to allow requests to be overwritten. Do this by editing the virtual host file (with root permissions): sudo nano /etc/apache2/sites-available/default; also, change the AllowOverride setting on line 11 (inside the <Directory /var/www/html/> block) from None to All. Save the file and then restart Apache with sudo service apache2 restart. Once it's restarted, refresh the page and it should load successfully. Now posts have URLs like /hello-world/ instead of /?p=123, and pages have URLs like /sample-page/ instead of /?page_id=2

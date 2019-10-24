@@ -1,0 +1,197 @@
+#===========================================================================#
+# Installation of my favorite Raspbian apps to a Raspberry PI 2 Model B     #
+#===========================================================================#
+
+# Enter this command to the Terminal to install the following apps
+# wget -O - "http://torba.hu/janos/install_raspbian_apps.txt"|sh
+
+Date: 2016-03-23
+
+#Downloading NOOBS and ApplePI-Baker: 10 min
+#Format microSD card                   1 min
+#Copy NOOBS to micro SD card:         10 min
+#Installing Raspbian with NOOBS:      20 min
+sudo apt-get update                 # 10 min
+sudo apt-get upgrade -y             # 45 min, 49 updated
+sudo apt-get install -y samba bluez blueman nano lsof tightvncserver x11vnc \
+iceweasel vlc nautilus gimp bitlbee xchat ntfs-3g transmission gedit \
+gedit-plugins gedit gedit-plugins \
+claws-mail-gdata-plugin claws-mail-fancy-plugin claws-mail-feeds-reader \
+claws-mail-gdata-plugin claws-mail-mailmbox-plugin claws-mail-multi-notifier \
+mozplugger freerdp-x11 tcpdump mplayer2 xine-ui evince xpaint html2ps juk minidlna \
+mysql-client php5 libapache2-mod-php5 php5-mysql git \
+kodi openvpn easy-rsa \
+eclipse mysql-workbench
+# ? min
+
+#sudo apt-get install -y apache2 mysql-server
+#sudo apt-get install -y bind9 bind9utils  bind9-host bind9-doc bindgraph dnsutils # Internet Domain Name Server
+#0 5 * * * rsync -av --delete /media/USBHDD1/shares /media/USBHDD2/shares/
+
+exit
+
+
+#===============================================================#
+# Installation of Raspbian and apps to a Raspberry PI 2 Model B #
+#===============================================================#
+
+# Start: 2016-01-14 17:10
+
+#Downloading NOOBS and ApplePI-Baker
+# 10 min
+
+#Copy NOOBS to micro SD card
+# 10 min
+
+#Installing Raspbian
+# 50 min
+
+#Put the Raspberry PI back to it's box with the SD card, reboot
+# 5 min
+
+sudo apt-get update
+# 30 min
+
+sudo apt-get upgrade
+# 45 min, 49 updated
+
+sudo apt-get install -y samba bluez blueman nano git bittornado iceweasel vlc mandelbulber
+# 30 min, 118 new, 70MB download
+
+#Suggested packages:
+#  bittornado-gui python-psyco ghostscript-x fonts-stix otf-stix fonts-oflb-asana-math fonts-mathjax mozplugger libgnomeui-0 freerdp-x11 lirc libmagickcore-6.q16-2-extra
+#  python-crypto-dbg python-crypto-doc bind9 bind9utils ctdb ldb-tools smbldap-tools winbind heimdal-clients videolan-doc libdvdcss2
+
+sudo apt-get install -y bittornado-gui  fonts-stix otf-stix fonts-oflb-asana-math fonts-mathjax mozplugger libgnomeui-0 freerdp-x11 lirc libmagickcore-6.q16-2-extra python-crypto-dbg python-crypto-doc bind9 bind9utils bind9-dyndb-ldap bind9-host bind9-doc bindgraph ctdb ldb-tools smbldap-tools winbind  videolan-doc qtsmbstatus-server qtsmbstatus-client tcpdump
+# 50 min, 113 new, 50MB download
+
+#Suggested packages:
+#  dnsutils ufw python-psyco lsof libctdb-dev libjs-mathjax heimdal-docs heimdal-kcm libdigest-hmac-perl libbonobo2-bin libgnomevfs2-bin libdata-dump-perl
+#  libcrypt-ssleay-perl inkscape libjson-perl libxml-parser-perl libxml-sax-perl python2.7-gdbm-dbg python2.7-tk-dbg libqt4-dev libauthen-ntlm-perl lirc-x setserial
+#  ir-keytable bplay mikmod mpg123 mpg321 mplayer mplayer2 vorbis-tools sox playmidi sidplay-base splay xcdroast xine-ui xmp gqview qiv imagemagick evince evince-gtk
+#  texlive-base abiword-common gnumeric rasmol xscreensaver-gl python-gdbm-dbg python-tk-dbg libnss-winbind libpam-winbind
+
+sudo apt-get install -y  dnsutils lsof mikmod mplayer2 playmidi xine-ui xmp geeqie qiv imagemagick evince xscreensaver-gl xscreensaver xscreensaver-screensaver-dizzy xscreensaver-screensaver-webcollage
+# 30 min, 78 new, 23MB download
+
+#Suggested packages:
+#  rblcheck unrar nautilus gimp xpaint geeqie-dbg ufraw imagemagick-doc autotrace enscript ffmpeg gnuplot grads graphviz hp2xx html2ps libwmf-bin mplayer povray radiance
+#  sane-utils texlive-base-bin transfig adplug-utils graphicsmagick-dbg sidplay-base xsidplay libspectre1-dbg gxine jlha-utils zoo goattracker osspd awesfx xfishtank
+#  xdaliclock fortune qcam streamer gdm3 kdm-gdmcompat
+
+sudo apt-get install -y  nautilus gimp xpaint  html2ps sane-utils xfishtank xdaliclock fortune
+# 30 min, 65 new, 31MB download
+
+sudo apt-get install -y apache2 mysql-server mysql-client php5 libapache2-mod-php5 php5-mysql
+
+sudo apt-get install eclipse
+#  min, 90 new, 235MB download
+
+exit
+
+# End: 2016-01-14 23:00
+
+#============================+
+# Install Bluetooth Keyboard +
+#============================+
+# http://www.kosagi.com/w/index.php?title=Hacks,_hints,_and_tricks#Bluetooth_Pairing_.28use_this_one.29
+# https://communities.intel.com/thread/61548?tstart=0
+# https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=99326
+
+pi@raspberrypi:~ $ crontab -l
+*/2 * * * * /home/pi/connect_bluetooth_keyboard.sh
+pi@raspberrypi:~ $ cat connect_bluetooth_keyboard.sh 
+sudo bluetoothctl -a <<<"pair 0C:FC:85:23:68:0C"
+
+
+#===================+
+# Install Wordpress +
+#===================+
+# https://www.raspberrypi.org/learning/lamp-web-server-with-wordpress/worksheet/
+
+cd /var/www/html/
+sudo chown pi: .
+sudo rm *
+wget http://wordpress.org/latest.tar.gz
+tar xzf latest.tar.gz
+mv wordpress/* .
+rm -rf wordpress latest.tar.gz
+mysql -uroot
+
+#create database wordpress;
+#ctrl+D
+
+#http://192.168.0.14
+#Database Name:      wordpress
+#User Name:          root
+#Password:           <YOUR PASSWORD>
+#Database Host:      localhost
+#Table Prefix:       wp_
+
+#http://192.168.0.14
+
+sudo a2enmod rewrite
+
+echo >/var/www/html/.htaccess "<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>"
+
+# You'll also need to tell the virtual host serving the site to allow requests to be overwritten. Do this by editing the virtual host file (with root permissions): sudo nano /etc/apache2/sites-available/default; also, change the AllowOverride setting on line 11 (inside the <Directory /var/www/html/> block) from None to All. Save the file and then restart Apache with sudo service apache2 restart. Once it's restarted, refresh the page and it should load successfully. Now posts have URLs like /hello-world/ instead of /?p=123, and pages have URLs like /sample-page/ instead of /?page_id=2
+
+#===============================================================#
+# Installation of Raspbian and apps to a Raspberry PI 2 Model B #
+#===============================================================#
+
+# Start: 2016-01-14 17:10
+
+#Downloading NOOBS and ApplePI-Baker
+# 10 min
+
+#Copy NOOBS to micro SD card
+# 10 min
+
+#Installing Raspbian
+# 50 min
+
+#Put the Raspberry PI back to it's box with the SD card, reboot
+# 5 min
+
+sudo apt-get update
+# 30 min
+
+sudo apt-get upgrade
+# 45 min, 49 updated
+
+sudo apt-get install -y samba bluez blueman nano git bittornado iceweasel vlc mandelbulber
+# 30 min, 118 new, 70MB download
+
+#Suggested packages:
+#  bittornado-gui python-psyco ghostscript-x fonts-stix otf-stix fonts-oflb-asana-math fonts-mathjax mozplugger libgnomeui-0 freerdp-x11 lirc libmagickcore-6.q16-2-extra
+#  python-crypto-dbg python-crypto-doc bind9 bind9utils ctdb ldb-tools smbldap-tools winbind heimdal-clients videolan-doc libdvdcss2
+
+sudo apt-get install -y bittornado-gui  fonts-stix otf-stix fonts-oflb-asana-math fonts-mathjax mozplugger libgnomeui-0 freerdp-x11 lirc libmagickcore-6.q16-2-extra python-crypto-dbg python-crypto-doc bind9 bind9utils bind9-dyndb-ldap bind9-host bind9-doc bindgraph ctdb ldb-tools smbldap-tools winbind  videolan-doc qtsmbstatus-server qtsmbstatus-client tcpdump
+# 50 min, 113 new, 50MB download
+
+#Suggested packages:
+#  dnsutils ufw python-psyco lsof libctdb-dev libjs-mathjax heimdal-docs heimdal-kcm libdigest-hmac-perl libbonobo2-bin libgnomevfs2-bin libdata-dump-perl
+#  libcrypt-ssleay-perl inkscape libjson-perl libxml-parser-perl libxml-sax-perl python2.7-gdbm-dbg python2.7-tk-dbg libqt4-dev libauthen-ntlm-perl lirc-x setserial
+#  ir-keytable bplay mikmod mpg123 mpg321 mplayer mplayer2 vorbis-tools sox playmidi sidplay-base splay xcdroast xine-ui xmp gqview qiv imagemagick evince evince-gtk
+#  texlive-base abiword-common gnumeric rasmol xscreensaver-gl python-gdbm-dbg python-tk-dbg libnss-winbind libpam-winbind
+
+sudo apt-get install -y  dnsutils lsof mikmod mplayer2 playmidi xine-ui xmp geeqie qiv imagemagick evince xscreensaver-gl xscreensaver xscreensaver-screensaver-dizzy xscreensaver-screensaver-webcollage
+# 30 min, 78 new, 23MB download
+
+#Suggested packages:
+#  rblcheck unrar nautilus gimp xpaint geeqie-dbg ufraw imagemagick-doc autotrace enscript ffmpeg gnuplot grads graphviz hp2xx html2ps libwmf-bin mplayer povray radiance
+#  sane-utils texlive-base-bin transfig adplug-utils graphicsmagick-dbg sidplay-base xsidplay libspectre1-dbg gxine jlha-utils zoo goattracker osspd awesfx xfishtank
+#  xdaliclock fortune qcam streamer gdm3 kdm-gdmcompat
+
+sudo apt-get install -y  nautilus gimp xpaint  html2ps sane-utils xfishtank xdaliclock fortune
+# 30 min, 65 new, 31MB download
+
+sudo apt-get install -y apache2 mysql-serv

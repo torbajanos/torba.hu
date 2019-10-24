@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
+<icons>
+	<description>
+		Torba János profiljainak Könyvjelzői. Bookmarks to profiles of János Torba.
+	</description>
+	<ogurl>http://torba.hu/janos/profiles.xml</ogurl>
+	<icon>
+		<picture>pictures/facebook.png</picture>
+		<title>torbajanos</title>
+		<link>http://facebook.com/torbajanos</link>
+	</icon>
+	<icon>
+		<picture>pictures/twitter.png</picture>
+		<title>@torbajanos</title>
+		<link>https://twitter.com/torbajanos</link>
+	</icon>
+	<icon>
+		<picture>pictures/blog.png</picture>
+		<title>Blog</title>
+		<link>http://egyinformatikusnaploja.blogspot.hu/</link>
+	</icon>
+	<icon>
+		<picture>pictures/youtube.png</picture>
+		<title>torbajanos</title>
+		<link>http://www.youtube.com/torbajanos</link>
+	</icon>
+	<icon>
+		<picture>pictures/linkedin.png</picture>
+		<title>janostorba</title>
+		<link>http://hu.linkedin.com/pub/janos-torba/45/907/b70/</link>
+	</icon>
+	<icon>
+		<picture>pictures/gplus.png</picture>
+		<title>+János</title>
+		<link>https://plus.google.com/u/0/+J%C3%A1nosTorba/posts</link>
+	</icon>
+	<icon>
+		<picture>pictures/geocaching.png</picture>
+		<title>GeoCaching</title>
+		<link>http://www.geocaching.com/profile/?guid=81deb128-8f53-4224-9480-ac940c7c4b8c</link>
+	</icon>
+	<icon>
+		<picture>pictures/soundcloud.png</picture>
+		<title>SoundCloud</title>
+		<link>http://soundcloud.com/torbajanos</link>
+	</icon>
+	<icon>
+		<picture>pictures/couchsurfing.png</picture>
+		<title>CouchSurfing</title>
+		<link>https://www.couchsurfing.com/users/1314605/profile</link>
+	</icon>
+	<icon>
+		<picture>pictures/back.png</picture>
+		<title>Back</title>
+		<link>index.xml</link>
+	</icon>
+</icons>

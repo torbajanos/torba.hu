@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
+<icons>
+	<description>
+	</description>
+	<ogurl>http://torba.hu/janos/linux.xml</ogurl>
+	<icon>
+		<picture>pictures/linux.png</picture>
+		<title>Eclipse</title>
+		<link>macosx.xml</link>
+	</icon>
+	<icon>
+		<picture>pictures/linux.png</picture>
+		<title>Workrave</title>
+		<link>http://www.workrave.org/download/</link>
+	</icon>
+	<icon>
+		<picture>pictures/back.png</picture>
+		<title>Back</title>
+		<link>downloads.xml</link>
+	</icon>
+</icons>

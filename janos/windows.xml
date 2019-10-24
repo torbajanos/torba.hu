@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
+<icons>
+	<description>
+	</description>
+	<ogurl></ogurl>
+	<icon>
+		<picture>pictures/totalcommander.png</picture>
+		<title>TotalCmd</title>
+		<link>http://www.ghisler.com/download.htm</link>
+	</icon>
+	<icon>
+		<picture>pictures/winamp.png</picture>
+		<title>WINAMP</title>
+		<link>http://www.winamp.com/</link>
+	</icon>
+	<icon>
+		<picture>pictures/notepad.png</picture>
+		<title>Notepad++</title>
+		<link>https://notepad-plus-plus.org/download/v6.8.2.html</link>
+	</icon>
+	<icon>
+		<picture>pictures/windirstat.png</picture>
+		<title>WinDirStat</title>
+		<link>http://windirstat.info/download.html</link>
+	</icon>
+	<icon>
+		<picture>pictures/back.png</picture>
+		<title>Back</title>
+		<link>downloads.xml</link>
+	</icon>
+</icons>

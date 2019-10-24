@@ -1,0 +1,2 @@
+# m  h  d  m  w command
+  *  *  *  *  * /bin/bash /home/pi/bin/connect_bluetooth.sh >/dev/null

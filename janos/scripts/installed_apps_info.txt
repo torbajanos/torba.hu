@@ -1,0 +1,71 @@
+samba - SMB/CIFS file, print, and login server for Unix
+bluez - Bluetooth tools and daemons
+blueman - Graphical bluetooth manager
+nano - small, friendly text editor inspired by Pico
+lsof - Utility to list open files
+tightvncserver - virtual network computing server software
+x11vnc - VNC server to allow remote access to an existing X session
+iceweasel - Web browser based on Firefox
+vlc - multimedia player and streamer
+nautilus - file manager and graphical shell for GNOME
+gimp - The GNU Image Manipulation Program
+bitlbee - An IRC to other chat networks gateway (default version)
+xchat - IRC client for X similar to AmIRC
+ntfs-3g - read/write NTFS driver for FUSE
+transmission - lightweight BitTorrent client
+claws-mail-gdata-plugin - Access to GData (Google services) for Claws Mail
+claws-mail-fancy-plugin - HTML mail viewer using GTK+2 WebKit
+claws-mail-feeds-reader - Feeds (RSS/Atom) reader plugin for Claws Mail
+claws-mail-gdata-plugin - Access to GData (Google services) for Claws Mail
+claws-mail-mailmbox-plugin - mbox format mailboxes handler for Claws Mail
+claws-mail-multi-notifier - Various new mail notifiers for Claws Mail
+mysql-client - MySQL database client (metapackage depending on the latest version)
+php5 - server-side, HTML-embedded scripting language (metapackage)
+libapache2-mod-php5 - server-side, HTML-embedded scripting language (Apache 2 module)
+php5-mysql - MySQL module for php5
+git - fast, scalable, distributed revision control system
+eclipse - Extensible Tool Platform and Java IDE
+mysql-workbench - MySQL Workbench - a visual database modeling, administration and queuing tool
+apache2 - Apache HTTP Server
+mysql-server - MySQL database server (metapackage depending on the latest version)
+mozplugger - Plugin allowing external viewers to be launched inside Mozilla
+freerdp-x11 - RDP client for Windows Terminal Services (X11 client)
+lirc - infra-red remote control support
+bind9 - Internet Domain Name Server
+bind9utils - Utilities for BIND
+bind9-host - Version of 'host' bundled with BIND 9.X
+bind9-doc - Documentation for BIND
+bindgraph - DNS statistics RRDtool frontend for BIND9
+ctdb - clustered database to store temporary data
+ldb-tools - LDAP-like embedded database - tools
+smbldap-tools - Scripts to manage Unix and Samba accounts stored on LDAP
+winbind - service to resolve user and group information from Windows NT servers
+qtsmbstatus-server - GUI (graphical user interface) for smbstatus (server)
+qtsmbstatus-client - GUI (graphical user interface) for smbstatus (client)
+tcpdump - command-line network traffic analyzer
+dnsutils - Clients provided with BIND
+mikmod - Portable tracked music player
+mplayer2 - next generation movie player for Unix-like systems
+playmidi - MIDI player
+xine-ui - the xine video player, user interface
+xmp - module player supporting AWE32, GUS, and software-mixing
+geeqie - image viewer using GTK+
+qiv - Quick image viewer for X
+imagemagick - image manipulation programs -- binaries
+evince - Document (PostScript, PDF) viewer
+xpaint - simple paint program for X
+html2ps - HTML to PostScript converter
+sane-utils - API library for scanners -- utilities
+xfishtank - turns your X root into an aquarium
+xdaliclock - Melting digital clock
+mandelbulber - 3D fractal renderer and animator
+gcalcli - Google Calendar Command Line Interface
+gnome-online-miners - Crawls through your online content
+google-sitemapgen - sitemap generator for Google Sitemap
+juk - music jukebox / music player
+php-google-api-php-client - Google APIs client library for PHP
+ayttm - Universal instant messaging client
+ekg2 - instant messenger and IRC client for UNIX systems
+tkabber - GUI client for XMPP (Jabber) instant messaging protocol
+gedit - official text editor of the GNOME desktop environment
+gedit-plugins - set of plugins for gedit

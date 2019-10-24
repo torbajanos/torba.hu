@@ -1,0 +1,53 @@
+echo "#===========================================================================#"
+echo "# Installation of my favorite Raspbian apps to a Raspberry PI 2 Model B     #"
+echo "#===========================================================================#"
+
+echo "Enter this command to the Terminal to install the following apps"
+echo 'wget -O - "http://torba.hu/janos/install_raspbian_apps.txt"|sh'
+
+Date: 2017-06-08
+
+sudo apt-get update
+sudo apt-get upgrade -y
+
+sudo apt-get install -y samba nano lsof tightvncserver x11vnc
+sudo apt-get install -y iceweasel vlc nautilus gimp bitlbee xchat ntfs-3g transmission
+sudo apt-get install -y gedit gedit-plugins
+sudo apt-get install -y claws-mail-gdata-plugin claws-mail-fancy-plugin claws-mail-feeds-reader
+sudo apt-get install -y claws-mail-gdata-plugin claws-mail-mailmbox-plugin claws-mail-multi-notifier
+sudo apt-get install -y mozplugger freerdp-x11 tcpdump
+sudo apt-get install -y mplayer2 xine-ui evince xpaint html2ps juk minidlna
+sudo apt-get install -y mysql-client php5 libapache2-mod-php5 php5-mysql
+sudo apt-get install -y git
+sudo apt-get install -y kodi
+sudo apt-get install -y openvpn easy-rsa
+
+# sudo apt-get install -y eclipse
+# sudo apt-get install -y mysql-workbench
+# sudo apt-get install -y apache2 mysql-server
+# sudo apt-get install -y bind9 bind9utils  bind9-host bind9-doc bindgraph dnsutils # Internet Domain Name Server
+
+sudo apt-get install -y realvnc-vnc-server realvnc-vnc-viewer
+sudo systemctl start vncserver-x11-serviced.service
+sudo systemctl enable vncserver-x11-serviced.service
+
+echo "Press ENTER to set new timezone"
+read
+sudo dpkg-reconfigure tzdata
+
+echo >/dev/stderr "RPI 2B+
+Red PWR LED	on if power OK
+			flashes (or goes out) if the power drops below about 4.63V
+Green	ACT LED steady on if no SD card during boot
+		irregular flashes for SD card access"
+
+echo >/dev/null "Start or stop the service with:
+  systemctl (start|stop) vncserver-x11-serviced.service
+Mark or unmark the service to be started at boot time with:
+  systemctl (enable|disable) vncserver-x11-serviced.service
+
+Installed systemd unit for VNC Server in Virtual Mode daemon
+Start or stop the service with:
+  systemctl (start|stop) vncserver-virtuald.service
+Mark or unmark the service to be started at boot time with:
+  systemctl (enable|disable) vncserver-virtuald.service"
