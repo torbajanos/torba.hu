@@ -3,7 +3,7 @@
 <icons>
 	<description>
 	</description>
-	<ogurl>http://torba.hu/janos/linux.xml</ogurl>
+	<ogurl>janos/linux.xml</ogurl>
 	<icon>
 		<picture>pictures/linux.png</picture>
 		<title>Eclipse</title>

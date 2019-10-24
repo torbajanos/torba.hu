@@ -4,7 +4,7 @@
 	<description>
 		Letöltések Downloads
 	</description>
-	<ogurl>http://torba.hu/janos/downloads.xml</ogurl>
+	<ogurl>janos/downloads.xml</ogurl>
 	<icon>
 		<picture>pictures/raspberry.png</picture>
 		<title>Raspbian</title>

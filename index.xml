@@ -6,21 +6,31 @@
         <name>János</name>
         <link>janos/</link>
     </user>
+    <user>
+        <picture>janos.jpg</picture>
+        <name>János</name>
+        <link>janos/</link>
+    </user>
+    <user>
+        <picture>janos.jpg</picture>
+        <name>János</name>
+        <link>janos/</link>
+    </user>
     <!--
         <user>
-            <picture>pictures/takeoff.jpg</picture>
+            <picture>takeoff.jpg</picture>
             <name>Tamás</name>
-            <link>tamas/</link>
+            <link>tamas</link>
         </user>
         <user>
-            <picture>pictures/magellantucana.jpg</picture>
+            <picture>magellantucana.jpg</picture>
             <name>Tibor</name>
             <link>tibor/</link>
         </user>
         <user>
-            <picture>pictures/architect.jpg</picture>
+            <picture>architect.jpg</picture>
             <name>Veronika</name>
-            <link>http://torba.hu/veronika/</link>
+            <link>veronika/</link>
         </user>
     -->
 </users>

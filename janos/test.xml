@@ -4,7 +4,7 @@
 	<description>
 		Torba János kedvenc könyvjelzői. Bookmarks to favorit pages of János Torba.
 	</description>
-	<ogurl>http://torba.hu/janos/bookmarks.xml</ogurl>
+	<ogurl>janos/bookmarks.xml</ogurl>
 	<icon>
 		<picture>pictures/kickassapp.png</picture>
 		<title>KickAssApp</title>

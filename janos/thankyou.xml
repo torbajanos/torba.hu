@@ -4,7 +4,7 @@
 	<description>
 		I say thank you for these peoples and sites that insired me to create my own website.
 	</description>
-	<ogurl>http://torba.hu/janos/thankyou.xml</ogurl>
+	<ogurl>janos/thankyou.xml</ogurl>
 		<icon>
 		<picture>pictures/thankyou.png</picture>
 		<title>cliparts101</title>

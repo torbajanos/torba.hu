@@ -4,7 +4,7 @@
 	<description>
 		Torba János profiljainak Könyvjelzői. Bookmarks to profiles of János Torba.
 	</description>
-	<ogurl>http://torba.hu/janos/profiles.xml</ogurl>
+	<ogurl>janos/profiles.xml</ogurl>
 	<icon>
 		<picture>pictures/facebook.png</picture>
 		<title>torbajanos</title>

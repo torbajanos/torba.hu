@@ -4,7 +4,7 @@
 	<description>
 		Torba János hivatalos weboldala. Offical home page of János Torba. Email: janos@torba.hu Tel: +36203115586 Skype: torbajanos
 	</description>
-	<ogurl>http://torba.hu/janos/index.xml</ogurl>
+	<ogurl>janos/index.xml</ogurl>
 	<icon>
 		<picture>pictures/contact.png</picture>
 		<title>Contact</title>
