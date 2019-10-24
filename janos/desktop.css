@@ -8,8 +8,9 @@ html {
 	background-size: cover;
 }
 body {
-/* 	background: url(pictures/wallpaper.jpg) black; */
-	color: red;
+ 	background: url(pictures/wallpaper.jpg) black;
+    background-color: #5A7EDC;
+    color: red;
 	font-family:arial;
 /* 	float: left; */
 }
