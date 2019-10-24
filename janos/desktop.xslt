@@ -15,7 +15,8 @@
    			<!-- https://developers.facebook.com/tools/debug/og/object/ -->
    			<meta property="og:image" content="//torba.hu/janos/pictures/vcard.png" /><xsl:text>&#10;</xsl:text>
    			<meta property="og:url" content="{icons/ogurl}" /><xsl:text>&#10;</xsl:text>
-			<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><xsl:text>&#10;</xsl:text>
+			<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+			<xsl:text>&#10;</xsl:text>
 			<meta name="description" content="Torba János hivatalos weboldala. Offical home page of János Torba. Email: janos@torba.hu Tel: +36203115586 Skype: torbajanos, Facebook: http://www.facebook.com/torbajanos https://hu-hu.facebook.com/public/János-Torba" /><xsl:text>&#10;</xsl:text>
 			<meta name="keywords" content="Torba,Janos,János,torbajanos,offical,hivatalos,profil,profile,+36203115586,janos@torba.hu,janos.torba.hu,janostorba,@torbajanos,#torbajanos,+János" /><xsl:text>&#10;</xsl:text>
 			<meta name="author" content="Torba Janos" /><xsl:text>&#10;</xsl:text>
