@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
 <icons>
-	<description>
-		Letöltések Downloads
-	</description>
-	<ogurl>http://torba.hu/janos/downloads.xml</ogurl>
 	<icon>
 		<picture>pictures/raspberry.png</picture>
 		<title>Raspbian</title>
-		<link>install_raspbian_apps.txt</link>
+		<link>scripts/install_raspbian_apps.txt</link>
 	</icon>
 	<icon>
 		<picture>pictures/macosx.png</picture>
 		<title>MacOSX</title>
-		<link>macosx.xml</link>
+		<link>desktop.html#macosx.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/playstore.png</picture>
 		<title>Android</title>
-		<link>android.xml</link>
+		<link>desktop.html#android.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/windows.png</picture>
 		<title>Windows</title>
-		<link>windows.xml</link>
+		<link>desktop.html#windows.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/linux.png</picture>
 		<title>Linux</title>
-		<link>linux.xml</link>
+		<link>desktop.html#linux.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/back.png</picture>

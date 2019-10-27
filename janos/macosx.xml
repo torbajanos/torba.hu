@@ -109,6 +109,6 @@
 	<icon>
 		<picture>pictures/back.png</picture>
 		<title>Back</title>
-		<link>downloads.xml</link>
+		<link>desktop.html#downloads.xml</link>
 	</icon>
 </icons>

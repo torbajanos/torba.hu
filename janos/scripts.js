@@ -19,25 +19,37 @@ $( window ).on( "popstate", function() {
   loadFolder();
 });
 
+xCache = {};
+
 function loadFolder() {
  hash = window.location.hash;
  if ( hash == "" ) {
-  hash = "#index.xml"
+  hash = "#index.xml";
  }
  if ( hash == "#...xml" ) {
-  hash = "#.."
+  window.location.href = "..";
+  return;
  }
  hash = hash.substring(1,111);
- $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
+ xslt = xCache["desktop.xslt"];
+ xml = xCache[hash];
+ if (xslt && xml ) {
   $('.desktop').html(transform(xml, xslt));
-  $('.shortcut,.button').click( function( event ) { setTimeout(function(){loadFolder();},100); } );
- }); });
+  $('.shortcut').click( function( event ) { setTimeout(function(){loadFolder();},100); } );
+ } else {
+  $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
+   xCache["desktop.xslt"] = xslt;
+   xCache[hash] = xml;
+   loadFolder();
+  }); });
+  }
 }
 
 $( document ).ready( function() {
  loadFolder();
  $.get( "taskbar.xslt", function( xslt ) { $.get( "taskbar.xml", function( xml ) {
   $('.taskbar').html(transform(xml, xslt));
+  $('.button').click( function( event ) { loadFolder(); } );
   startTime();
   windowResize();
  }); });

@@ -15,6 +15,12 @@
                 </span>
             </a>
         </xsl:for-each>
+        <a class="button" href="..">
+            <img src="pictures/turnoff.png"/>
+            <span>
+                Logout
+            </span>
+        </a>
 
         <div class="button clock">00:00</div>
 
