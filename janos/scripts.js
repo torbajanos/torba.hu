@@ -7,25 +7,32 @@ function startTime() {
     var m=today.getMinutes();
     h = checkTime(h);
     m = checkTime(m);
-    document.getElementById('clock').innerHTML = h + ":" + m;
-    var t = setTimeout(function(){startTime()},500);
+    $("clock").html = h + ":" + m;
+    var t = setTimeout(function(){startTime()},1000);
 }
 function checkTime(i) {
     if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
 
-/*
- * Translates home page button captions to Hungarian
- */
+function loadFolder() {
+ hash = window.location.hash;
+ if ( hash == "" ) {
+  hash = "index"
+ }
+ $.get( "desktop.xslt", function( xslt ) { $.get( hash + ".xml", function( xml ) {
+  $('.desktop').html(transform(xml, xslt));
+  $('.shortcut').click( function( event ) { loadFolder(); event.preventDefault(); } );
+ }); });
+}
+
 $( document ).ready( function() {
-$.get( "desktop.xslt", function( xslt ) { $.get( "index.xml", function( xml ) {
- $('#desktop').html(transform(xml, xslt));
-}); });
-$.get( "taskbar.xslt", function( xslt ) { $.get( "taskbar.xml", function( xml ) {
- $('#taskbar').html(transform(xml, xslt));
- startTime();
-}); });
+ loadFolder();
+ $.get( "taskbar.xslt", function( xslt ) { $.get( "taskbar.xml", function( xml ) {
+  $('.taskbar').html(transform(xml, xslt));
+  startTime();
+  windowResize();
+ }); });
 
 /*	$('a[href=#magyarul]').click(function(e) {
 		e.preventDefault();
@@ -65,9 +72,9 @@ function windowResize() {
 		$('.taskbar').show();
 	}
 	if ($(window).width() < 880) {
-		$('.taskbar .button span').hide().parent().parent().width(20);
+		$('.taskbar .button span').hide().parent().width(20);
 	} else {
-		$('.taskbar .button span').show().parent().parent().width(110);
+		$('.taskbar .button span').show().parent().width(110);
 	}
 }
 $( document ).ready( function() {

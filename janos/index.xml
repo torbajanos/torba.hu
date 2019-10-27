@@ -4,31 +4,31 @@
 	<icon>
 		<picture>pictures/contact.png</picture>
 		<title>Contact</title>
-		<link>desktop.html#contactbutton</link>
+		<link>desktop.html#contact.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/profiles.png</picture>
 		<title>Profiles</title>
-		<link>desktop.html#profilesbutton</link>
+		<link>desktop.html#profiles.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/bookmarks.png</picture>
 		<title>Bookmarks</title>
-		<link>desktop.html#bookmarksbutton</link>
+		<link>desktop.html#bookmarks.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/thankyou.png</picture>
 		<title>Thankyou</title>
-		<link>desktop.html#thankyoubutton</link>
+		<link>desktop.html#thankyou.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/downloads.png</picture>
 		<title>Downloads</title>
-		<link>desktop.html#downloadsbutton</link>
+		<link>desktop.html#downloads.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/kerekmagyarzaszlo.png</picture>
 		<title>Magyarul</title>
-		<link>desktop.html##magyarul</link>
+		<link>desktop.html##magyarul.xml</link>
 	</icon>
 </icons>

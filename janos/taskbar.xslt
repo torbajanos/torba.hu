@@ -8,15 +8,15 @@
         </a>
 
         <xsl:for-each select="buttons/button">
-            <a class="button" href="desktop.html#{link}">
-                <img src="pictures/{link}.png" alt="{title}"/>
+            <a class="button" href="desktop.html#{link}.xml">
+                <img src="pictures/{link}.png"/>
                 <span>
                     <xsl:value-of select="title"/>
                 </span>
             </a>
         </xsl:for-each>
 
-        <div class="button clock" id="clock">00:00</div>
+        <div class="button clock">00:00</div>
 
     </xsl:template>
 </xsl:stylesheet>
