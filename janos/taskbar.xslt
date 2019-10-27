@@ -8,7 +8,7 @@
         </a>
 
         <xsl:for-each select="buttons/button">
-            <a class="button" href="desktop.html#{link}.xml">
+            <a class="button middle" href="desktop.html#{link}.xml">
                 <img src="pictures/{link}.png"/>
                 <span>
                     <xsl:value-of select="title"/>

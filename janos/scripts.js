@@ -86,14 +86,12 @@ function transform(xml, xsl) {
  * Resize taskbar buttons depending on the screensize
  */
 function windowResize() {
-	/*
-	if ($(window).width() < 512) {
-		$('.taskbar').hide();
+	if ($(window).width() < 450) {
+		$('.taskbar .button').filter(".middle").hide();
 	} else {
-		$('.taskbar').show();
+		$('.taskbar .button').filter(".middle").show();
 	}
-	*/
-	if ($(window).width() < 1100) {
+	if ($(window).width() < 1060) {
 		$('.taskbar .button span').hide().parent().filter("a").addClass("icon-only").removeClass("with-text");
 		$('.taskbar .button span.clock').show();
 	} else {
