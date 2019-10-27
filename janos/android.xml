@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
 <icons>
-	<description>
-	</description>
-	<ogurl></ogurl>
 	<icon>
 		<picture>pictures/cyanogenmod.png</picture>
 		<title>Cyanogen</title>

@@ -24,6 +24,9 @@ function loadFolder() {
  if ( hash == "" ) {
   hash = "#index.xml"
  }
+ if ( hash == "#...xml" ) {
+  hash = "#.."
+ }
  hash = hash.substring(1,111);
  $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
   $('.desktop').html(transform(xml, xslt));

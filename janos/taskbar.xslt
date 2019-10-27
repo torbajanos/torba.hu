@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
 
-        <a class="home button" href="desktop.html">
+        <a class="home button" href="desktop.html#index.xml">
             <img src="pictures/home.png"/>
             <span>Home</span>
         </a>
