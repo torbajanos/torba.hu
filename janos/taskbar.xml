@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buttons>
+    <button>
+        <link>contact</link>
+        <title>Contact</title>
+
+    </button>
+    <button>
+        <link>profiles</link>
+        <title>Profiles</title>
+
+    </button>
+    <button>
+        <link>bookmarks</link>
+        <title>Bookmarks</title>
+
+    </button>
+    <button>
+        <link>downloads</link>
+        <title>Downloads</title>
+
+    </button>
+    <button>
+        <link>http://torba.hu/</link>
+        <title>Logout</title>
+
+    </button>
+</buttons>
