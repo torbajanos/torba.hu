@@ -7,7 +7,7 @@ function startTime() {
     var m=today.getMinutes();
     h = checkTime(h);
     m = checkTime(m);
-    $("clock").html = h + ":" + m;
+    $(".clock").html( h + ":" + m);
     var t = setTimeout(function(){startTime()},1000);
 }
 function checkTime(i) {
