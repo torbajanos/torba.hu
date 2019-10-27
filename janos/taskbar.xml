@@ -12,10 +12,12 @@
         <link>bookmarks</link>
         <title>Bookmarks</title>
     </button>
+    <!--
     <button>
         <title>Thankyou</title>
         <link>thankyou</link>
     </button>
+    -->
     <button>
         <link>downloads</link>
         <title>Downloads</title>

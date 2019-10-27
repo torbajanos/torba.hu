@@ -1,5 +1,5 @@
 { margin: 0; padding: 0; }
-html { background: url('pictures/blue-tile.jpg') repeat; }
+html { background: url('pictures/blue-tile.jpg') repeat fixed; }
 
 .desktop {
 	float: left;
