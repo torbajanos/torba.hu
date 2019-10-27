@@ -14,16 +14,20 @@ function checkTime(i) {
     if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
-$( document ).ready( function() {
-	startTime();
-});
-
 
 /*
  * Translates home page button captions to Hungarian
  */
 $( document ).ready( function() {
-	$('a[href=#magyarul]').click(function(e) {
+$.get( "desktop.xslt", function( xslt ) { $.get( "index.xml", function( xml ) {
+ $('#desktop').html(transform(xml, xslt));
+}); });
+$.get( "taskbar.xslt", function( xslt ) { $.get( "taskbar.xml", function( xml ) {
+ $('#taskbar').html(transform(xml, xslt));
+ startTime();
+}); });
+
+/*	$('a[href=#magyarul]').click(function(e) {
 		e.preventDefault();
 		$("span").each(function() {
 			$(this).text($(this).text()
@@ -37,9 +41,19 @@ $( document ).ready( function() {
 			);
 		});
 		return false;
-	});
+	});*/
 });
 
+function transform(xml, xsl) {
+  if (document.implementation && document.implementation.createDocument)
+  {
+  xsltProcessor = new XSLTProcessor();
+  xsltProcessor.importStylesheet(xsl);
+  return xsltProcessor.transformToFragment(xml, document);
+  } else {
+   return "ERROR";
+  }
+}
 
 /*
  * Resize taskbar buttons depending on the screensize

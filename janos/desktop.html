@@ -25,42 +25,9 @@
         src="http://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
-<!-- <script type="text/javascript" src="scripts.js"></script> -->
+<script type="text/javascript" src="scripts.js"></script>
 </body>
-<script type="text/javascript">
-function transform(xml, xsl)
-{
-  if (document.implementation && document.implementation.createDocument)
-  {
-  xsltProcessor = new XSLTProcessor();
-  xsltProcessor.importStylesheet(xsl);
-  return xsltProcessor.transformToFragment(xml, document);
-  } else {
-   return "ERROR";
-  }
-}
 
-var xml="";
-var xmlReady=0;
-var xslt="";
-var xsltReady=0;
-$.get( "index.xml", function( data ) {xml=data;xmlReady=1;});
-$.get( "desktop.xslt", function( data ) {xslt=data;xsltReady=1;});
-$(function() {var wait1sec = function(){
- if(xmlReady && xsltReady){
-  $('#transformResult').html(transform(xml, xslt));
-  console.log("Transformation Ready");
- } else {
-  setTimeout(wait1sec, 1000); // check again in a second, call is recursive
- }
-}
-wait1sec();
-
-});
-
-
-
-</script>
 <script>
 			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
