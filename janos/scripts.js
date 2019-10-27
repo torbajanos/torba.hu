@@ -15,14 +15,19 @@ function checkTime(i) {
     return i;
 }
 
+$( window ).on( "popstate", function() {
+  loadFolder();
+});
+
 function loadFolder() {
  hash = window.location.hash;
  if ( hash == "" ) {
-  hash = "index"
+  hash = "#index.xml"
  }
- $.get( "desktop.xslt", function( xslt ) { $.get( hash + ".xml", function( xml ) {
+ hash = hash.substring(1,111);
+ $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
   $('.desktop').html(transform(xml, xslt));
-  $('.shortcut').click( function( event ) { loadFolder(); event.preventDefault(); } );
+  $('.shortcut,.button').click( function( event ) { setTimeout(function(){loadFolder();},100); } );
  }); });
 }
 

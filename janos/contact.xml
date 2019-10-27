@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
 <icons>
-	<description>
-		Torba János hivatalos weboldala. Offical home page of János Torba. Email: janos@torba.hu Tel: +36203115586 Skype: torbajanos, Facebook: http://www.facebook.com/torbajanos https://hu-hu.facebook.com/public/János-Torba
-	</description>
-	<ogurl>http://torba.hu/janos/index.xml</ogurl>
 	<icon>
 		<picture>pictures/email.png</picture>
 		<title>Email</title>
@@ -38,6 +34,6 @@
 	<icon>
 		<picture>pictures/back.png</picture>
 		<title>Back</title>
-		<link>index.xml</link>
+		<link></link>
 	</icon>
 </icons>

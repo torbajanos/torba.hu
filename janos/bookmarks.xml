@@ -92,6 +92,6 @@
 	<icon>
 		<picture>pictures/back.png</picture>
 		<title>Back</title>
-		<link>index.xml</link>
+		<link></link>
 	</icon>
 </icons>
