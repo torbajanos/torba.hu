@@ -43,24 +43,34 @@ html { background: url('pictures/blue-tile.jpg') repeat; }
 	bottom: 0px;
 	position: fixed;
 }
-.taskbar .button img {
-	color: white;
-	width: 15px;
-}
 .taskbar .button {
 	float: left;
-	padding: 7px 5px 2px 5px;
+	padding: 5px;
 	margin: 5px;
-	width: 100px;
-	text-align: center;
 	background: #69F;
-	font-size: 15px;
-	vertical-align: middle;
 	border-radius: 5px;
-}
-.taskbar .button {
 	display: block;
-	padding-top: 3p;
+}
+.taskbar .clock-button {
+	float: right;
+}
+.taskbar .button img {
+	width: 32px;
+	float: left;
+	vertical-align: middle;
+}
+.taskbar .button span {
+    display: block;
+    float: left;
+	font-size: 23px;
+    padding-top: 4px;
+     padding-left: 4px;
+}
+.with-text {
+    width: 150px;
+}
+.icon-only {
+    width: 32px;
 }
 .taskbar .home {
 	background-color: #6D6;
@@ -70,6 +80,7 @@ html { background: url('pictures/blue-tile.jpg') repeat; }
 	color: black;
 	width: 50px;
 	height: 100%;
+	padding-right: 8px;
 }
 .taskbar .selected {
 	background: #1B4CB5;

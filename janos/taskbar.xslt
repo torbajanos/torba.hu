@@ -22,7 +22,11 @@
             </span>
         </a>
 
-        <div class="button clock">00:00</div>
+        <div class="button clock-button">
+            <span class="clock">
+                00:00
+            </span>
+        </div>
 
     </xsl:template>
 </xsl:stylesheet>
