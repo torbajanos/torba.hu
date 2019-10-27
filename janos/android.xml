@@ -28,7 +28,7 @@
 	</icon>
 	<icon>
 		<picture>pictures/hackers.png</picture>
-		<title>Hacker'sKeyb</title>
+		<title>Hacker's Keyboard</title>
 		<link>https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard</link>
 	</icon>
 	<icon>
@@ -38,12 +38,12 @@
 	</icon>
 	<icon>
 		<picture>pictures/linuxonandroid.png</picture>
-		<title>Linux</title>
+		<title>Linux on Android</title>
 		<link>https://play.google.com/store/apps/details?id=com.zpwebsites.linuxonandroid</link>
 	</icon>
 	<icon>
 		<picture>pictures/enghun.png</picture>
-		<title>EngHunDict</title>
+		<title>Eng Hun Dict</title>
 		<link>https://play.google.com/store/apps/details?id=com.movinapp.dict.enhu.free</link>
 	</icon>
 	<icon>
@@ -53,13 +53,283 @@
 	</icon>
 	<icon>
 		<picture>pictures/droidshooting.png</picture>
-		<title>DroidShooting</title>
+		<title>Droid Shooting</title>
 		<link>https://play.google.com/store/apps/details?id=jp.co.questcom.droidshooting</link>
 	</icon>
 	<icon>
 		<picture>pictures/fing.png</picture>
 		<title>Fing</title>
 		<link>https://play.google.com/store/apps/details?id=com.overlook.android.fing</link>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.sand.airdroid</link>
+		<title>AirDroid</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=net.zemna.android.applistbackup2</link>
+		<title>App List Backup</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.lastpass.authenticator</link>
+		<title>LastPass Authenticator</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=cgeo.geocaching</link>
+		<title>c:geo</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.google.android.apps.cloudprint</link>
+		<title>Clour Print</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.wowwee.coji</link>
+		<title>COJI</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.socialnmobile.dictapps.notepad.color.note</link>
+		<title>ColorNote</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.facebook.katana</link>
+		<title>Facebook</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.overlook.android.fing</link>
+		<title>Fing</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.hsv.freeadblockerbrowser</link>
+		<title>Adblocker Browser</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.DanielBach.FrequenSee</link>
+		<title>FrequenSee</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2</link>
+		<title>Google sHitelesítő</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.google.android.apps.chromecast.app</link>
+		<title>Google Home</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.lgi.orionandroid</link>
+		<title>Horizon Go</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.sonelli.juicessh</link>
+		<title>JuiceSSH</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp</link>
+		<title>KDE Connect</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.google.android.keep</link>
+		<title>Keep - jegyzetek</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=paint.by.number.pixel.art.coloring.drawing.puzzle</link>
+		<title>Kifestő</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.google.android.apps.adm</link>
+		<title>Készülék kereső</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.lastpass.lpandroid</link>
+		<title>LastPass</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=org.linphone</link>
+		<title>Linphone</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=de.onyxbits.listmyapps</link>
+		<title>List My Apps</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=menion.android.locus</link>
+		<title>Locus Map</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=mega.privacy.android.app</link>
+		<title>MEGA</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.xiaomi.hm.health</link>
+		<title>Mi Fit</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.mizuvoip.mizudroid.app</link>
+		<title>MizuDroid</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=hu.khb</link>
+		<title>K&amp;H mobilbank</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=finarea.MobileVoip</link>
+		<title>Mobile VOIP</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=hu.mavszk.vonatinfo</link>
+		<title>MÁV</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=hu.viala.newiapp</link>
+		<title>Netpincér</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.wakdev.nfctasks</link>
+		<title>NFC Tasks</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.nfc_tech_nfc</link>
+		<title>NFC Tech</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.wakdev.wdnfc</link>
+		<title>NFC Tools</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.nisahnt.nishantbafna.notifydemo</link>
+		<title>notin</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.deependhulla.opensync</link>
+		<title>OpenSync</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=org.sbaudio.oscope</link>
+		<title>Oscope</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=nanashi.studios.paint</link>
+		<title>Paint</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=io.yomba.pakli</link>
+		<title>Pakli</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.holabar.app.lite</link>
+		<title>Scan2Login</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=lelloman.com.simplebpmdetector</link>
+		<title>Simple BPM Detector</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.skype.raider</link>
+		<title>Skype</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=org.zwanoo.android.speedtest</link>
+		<title>Speedtest</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.twc.radar</link>
+		<title>Store Radar</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.nxp.nfc.tagwriter</link>
+		<title>TagWriter</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=hu.telekom.telekomapp</link>
+		<title>Telekom</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=TellMeTheTime.App</link>
+		<title>Tell Me The Time</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=org.prowl.torque</link>
+		<title>Torque</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=tunein.player</link>
+		<title>TuneIn Radio</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.google.android.street</link>
+		<title>Google Utcakép</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.viber.voip</link>
+		<title>Viber</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=org.videolan.vlc</link>
+		<title>VLC</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.whatsapp</link>
+		<title>WhatsApp</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.lonelycatgames.Xplore</link>
+		<title>X-plore</title>
+	</icon>
+	<icon>
+		<picture>pictures/playstore.png</picture>
+		<link>https://play.google.com/store/apps/details?id=com.yeelight.cherry</link>
+		<title>Yeelight</title>
 	</icon>
 	<icon>
 		<picture>pictures/back.png</picture>
