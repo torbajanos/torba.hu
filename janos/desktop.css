@@ -1,19 +1,5 @@
 { margin: 0; padding: 0; }
-
-html { 
-	background: url('pictures/wallpaper.jpg') no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-body {
- 	background: url(pictures/wallpaper.jpg) black;
-    background-color: #5A7EDC;
-    color: red;
-	font-family:arial;
-/* 	float: left; */
-}
+html { background: url('pictures/blue-tile.jpg') repeat; }
 
 .desktop {
 	float: left;
@@ -24,35 +10,35 @@ body {
 	float:left;
 	display: block;
 	text-align: center;
+     width:64px;
+     font-size: 14px;
+     margin: 0 5px;
+     padding: 0 5px;
 }
-.shortcut a {
-	float: left;
+.shortcut img {
+    width:64px;
+    height:64px;
 }
 .shortcut span {
-	background: #245EDC;
-	border-radius: 3px;
-	padding: 3px;
-	
+	display: block;
+	height: 32px;
 }
-.shortcut img:hover {
-	background: #1B4CB5;
+.shortcut:hover {
+	background: #3388ff;
 	border-radius: 5px;
-	
 }
-.shortcut a, a:link, .shortcut a:visited, .shortcut a:hover, .shortcut a:active ,
-.button a, a:link, .button a:visited, .button a:hover, .button a:active {
-	color: white;
+.shortcut, .shortcut :link, .shortcut :visited, .shortcut :hover, .shortcut :active ,
+.button  , .button   :link, .button   :visited, .button   :hover, .button   :active {
+	color: black;
 	text-decoration: none;
+	font-weight: bold;
 }
 
 .taskbar {
 	float: left;
 	width: 100%;
-/* 	height: 34px; */
 	background: #245EDC;
 	color: white;
-/* 	padding: 10px; */
-/* 	border: 2px solid #AAA; */
 	left: 0px;
 	bottom: 0px;
 	position: fixed;
@@ -65,22 +51,19 @@ body {
 	float: left;
 	padding: 7px 5px 2px 5px;
 	margin: 5px;
-/* 	height: 20px; */
 	width: 100px;
 	text-align: center;
 	background: #69F;
-/* 	border: 4px solid #AAF; */
 	font-size: 15px;
 	vertical-align: middle;
 	border-radius: 5px;
 }
-.taskbar .button a {
+.taskbar .button {
 	display: block;
 	padding-top: 3p;
 }
 .taskbar .home {
 	background-color: #6D6;
-/* 	width: 50px; */
 }
 .taskbar .clock {
 	float: right;
@@ -90,39 +73,4 @@ body {
 }
 .taskbar .selected {
 	background: #1B4CB5;
-}
-
-/* http://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
-
-/* Small phones ----------- */
-@media only screen and (min-device-width :   0px) and (max-device-width : 300px) {
-/* Styles */
-/* 	body { background-color: blue; } */
-	.shortcut {     width:32px; font-size: 8px; padding:5px; margin:5px; }
-	.shortcut img { width:32px; height:32px; }
-}
-
-/* Smartphones ----------- */
-@media only screen and (min-device-width : 301px) and (max-device-width : 800px) {
-/* Styles */
-/* 	body { background-color: green; } */
-	.shortcut {     width:55px; font-size: 12px; padding:5px; margin:5px; }
-	.shortcut img { width:55px;     height:55px; }
-}
-
-/* Desktops, laptops, tablets ----------- */
-@media only screen and (min-device-width : 801px) and (max-device-width : 1824px) {
-/* Styles */
-/* 	body { background-color: yellow; } */
-	.shortcut {     width:64px; font-size: 14px; padding:5px; margin:15px; }
-	.shortcut img { width:64px;    height:64px; }
-
-}
-
-/* Large screens ----------- */
-@media only screen and (min-device-width : 1825px) and (max-device-width : 9999px) {
-/* Styles */
-/* 	body { background-color: red; } */
-	.shortcut {     width:128px; font-size: 28px; padding:10px; margin:30px; }
-	.shortcut img { width:128px;    height:128px; }
 }

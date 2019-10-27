@@ -7,23 +7,54 @@ function startTime() {
     var m=today.getMinutes();
     h = checkTime(h);
     m = checkTime(m);
-    document.getElementById('clock').innerHTML = h + ":" + m;
-    var t = setTimeout(function(){startTime()},500);
+    $("clock").html = h + ":" + m;
+    var t = setTimeout(function(){startTime()},1000);
 }
 function checkTime(i) {
     if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
-$( document ).ready( function() {
-	startTime();
+
+$( window ).on( "popstate", function() {
+  loadFolder();
 });
 
+xCache = {};
 
-/*
- * Translates home page button captions to Hungarian
- */
+function loadFolder() {
+ hash = window.location.hash;
+ if ( hash == "" ) {
+  hash = "#index.xml";
+ }
+ if ( hash == "#...xml" ) {
+  window.location.href = "..";
+  return;
+ }
+ hash = hash.substring(1,111);
+ xslt = xCache["desktop.xslt"];
+ xml = xCache[hash];
+ if (xslt && xml ) {
+  $('.desktop').html(transform(xml, xslt));
+  $('.shortcut').click( function( event ) { setTimeout(function(){loadFolder();},100); } );
+ } else {
+  $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
+   xCache["desktop.xslt"] = xslt;
+   xCache[hash] = xml;
+   loadFolder();
+  }); });
+  }
+}
+
 $( document ).ready( function() {
-	$('a[href=#magyarul]').click(function(e) {
+ loadFolder();
+ $.get( "taskbar.xslt", function( xslt ) { $.get( "taskbar.xml", function( xml ) {
+  $('.taskbar').html(transform(xml, xslt));
+  $('.button').click( function( event ) { loadFolder(); } );
+  startTime();
+  windowResize();
+ }); });
+
+/*	$('a[href=#magyarul]').click(function(e) {
 		e.preventDefault();
 		$("span").each(function() {
 			$(this).text($(this).text()
@@ -37,9 +68,19 @@ $( document ).ready( function() {
 			);
 		});
 		return false;
-	});
+	});*/
 });
 
+function transform(xml, xsl) {
+  if (document.implementation && document.implementation.createDocument)
+  {
+  xsltProcessor = new XSLTProcessor();
+  xsltProcessor.importStylesheet(xsl);
+  return xsltProcessor.transformToFragment(xml, document);
+  } else {
+   return "ERROR";
+  }
+}
 
 /*
  * Resize taskbar buttons depending on the screensize
@@ -51,9 +92,9 @@ function windowResize() {
 		$('.taskbar').show();
 	}
 	if ($(window).width() < 880) {
-		$('.taskbar .button span').hide().parent().parent().width(20);
+		$('.taskbar .button span').hide().parent().width(20);
 	} else {
-		$('.taskbar .button span').show().parent().parent().width(110);
+		$('.taskbar .button span').show().parent().width(110);
 	}
 }
 $( document ).ready( function() {

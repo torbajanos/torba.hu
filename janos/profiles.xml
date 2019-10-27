@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
 <icons>
-	<description>
-		Torba János profiljainak Könyvjelzői. Bookmarks to profiles of János Torba.
-	</description>
-	<ogurl>janos/profiles.xml</ogurl>
 	<icon>
 		<picture>pictures/facebook.png</picture>
 		<title>torbajanos</title>
@@ -53,6 +49,6 @@
 	<icon>
 		<picture>pictures/back.png</picture>
 		<title>Back</title>
-		<link>index.xml</link>
+		<link>desktop.html#index.xml</link>
 	</icon>
 </icons>

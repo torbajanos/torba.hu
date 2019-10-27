@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
 <icons>
-	<description>
-	</description>
-	<ogurl>janos/linux.xml</ogurl>
 	<icon>
 		<picture>pictures/linux.png</picture>
 		<title>Eclipse</title>
@@ -17,6 +14,6 @@
 	<icon>
 		<picture>pictures/back.png</picture>
 		<title>Back</title>
-		<link>downloads.xml</link>
+		<link>desktop.html#downloads.xml</link>
 	</icon>
 </icons>
