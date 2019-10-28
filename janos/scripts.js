@@ -21,37 +21,49 @@ $( window ).on( "popstate", function() {
 
 xCache = {};
 
-function loadFolder(event) {
- hash = window.location.hash;
- if ( hash == "" ) {
-  hash = "#index.xml";
- }
- if ( hash == "#...xml" ) {
-  window.location.href = "..";
-  return;
- }
- hash = hash.substring(1,111);
- xslt = xCache["desktop.xslt"];
- xml = xCache[hash];
- if (xslt && xml ) {
-  $('.desktop').html(transform(xml, xslt));
-  $('.shortcut').click( function( event ) { setTimeout(function(){loadFolder();},100); } );
- } else {
-  $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
-   xCache["desktop.xslt"] = xslt;
-   xCache[hash] = xml;
-   if (hash.match(/xml/)) {
-    loadFolder();
-   }
-  }); });
-  }
+function loadFolder(loadFolderEvent) {
+    console.log("loadFolderEvent", loadFolderEvent);
+    hash = window.location.hash;
+    if ( hash == "" ) {
+        hash = "#index.xml";
+    }
+    if ( hash == "#...xml" ) {
+        window.location.href = "..";
+        return;
+    }
+    hash = hash.substring(1,111);
+    xslt = xCache["desktop.xslt"];
+    xml = xCache[hash];
+    if (xslt && xml ) {
+        $('.desktop').html(transform(xml, xslt));
+        $('.shortcut').click( function( shortcutClickEvent ) {
+            url = shortcutClickEvent.delegateTarget.href.replace(/'/g, "");
+            console.log("shortcutClickEvent", shortcutClickEvent, url);
+            if (url.match(/xml$/)) {
+                setTimeout(function(){
+                    loadFolder();
+                    shortcutClickEvent.preventDefault();
+                },100);
+            } else {
+                processLink(url)
+            }
+        });
+    } else {
+        $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
+            xCache["desktop.xslt"] = xslt;
+            xCache[hash] = xml;
+            if (hash.match(/xml/)) {
+             loadFolder();
+            }
+        }); });
+    }
 }
 
 $( document ).ready( function() {
  loadFolder();
  $.get( "taskbar.xslt", function( xslt ) { $.get( "taskbar.xml", function( xml ) {
   $('.taskbar').html(transform(xml, xslt));
-  $('.button').click( function( event ) { loadFolder(event);  } );
+  $('.button').click( function( buttonClickEvent ) { loadFolder(buttonClickEvent);  } );
   startTime();
   windowResize();
  }); });
@@ -118,6 +130,7 @@ $( document ).ready( function() {
 });
 
 function processLink(url) {
+    console.log("processLink", url);
     text = 'megyunk <a href="'+url+'">ide</a>';
     text = xCache[url];
     if (text) {
@@ -136,6 +149,7 @@ function processLink(url) {
 	return false;
 }
 function urlLauncher(url, text) {
+    console.log("urlLauncher", url, text);
      if (url.match(/txt$/)) {
          var t = setTimeout(function(){postprocess('<pre class="text-reader">'+text+'</pre>')},500);
          return false;
