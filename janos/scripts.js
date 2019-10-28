@@ -5,24 +5,29 @@ function startTime() {
     var today=new Date();
     var h=today.getHours();
     var m=today.getMinutes();
-    h = checkTime(h);
-    m = checkTime(m);
+    h = addLeadingZero(h);
+    m = addLeadingZero(m);
     $(".clock").html( h + ":" + m);
     var t = setTimeout(function(){startTime()},1000);
 }
-function checkTime(i) {
+function addLeadingZero(i) {
     if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
 
-$( window ).on( "popstate", function() {
-  loadFolder();
-});
+/*
+ * Ha megvaltozik a hash az url vegen, akkor hivodik Chrome-ban es Firefoxban
+ */
+//$( window ).on( "popstate", function() {
+//    loadFolder("Called on popstate");
+//});
 
 xCache = {};
 
-function loadFolder(loadFolderEvent) {
-    console.log("loadFolderEvent", loadFolderEvent);
+function loadFolder(text, event) {
+    if (text) {
+        console.log("loadFolder", text, event);
+    }
     hash = window.location.hash;
     if ( hash == "" ) {
         hash = "#index.xml";
@@ -34,55 +39,55 @@ function loadFolder(loadFolderEvent) {
     hash = hash.substring(1,111);
     xslt = xCache["desktop.xslt"];
     xml = xCache[hash];
-    if (xslt && xml ) {
+    if (xslt && xml) {
         $('.desktop').html(transform(xml, xslt));
         $('.shortcut').click( function( shortcutClickEvent ) {
-            url = shortcutClickEvent.delegateTarget.href.replace(/'/g, "");
-            console.log("shortcutClickEvent", shortcutClickEvent, url);
+            url = shortcutClickEvent.delegateTarget.href;
             if (url.match(/xml$/)) {
                 setTimeout(function(){
                     loadFolder();
                     shortcutClickEvent.preventDefault();
                 },100);
             } else {
-                processLink(url)
+                processLink(url);
+                shortcutClickEvent.preventDefault();
             }
         });
     } else {
-        $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
-            xCache["desktop.xslt"] = xslt;
-            xCache[hash] = xml;
-            if (hash.match(/xml/)) {
-             loadFolder();
-            }
-        }); });
+        if (xslt) {
+            $.get( hash, function( xml ) {
+                xCache["desktop.xslt"] = xslt;
+                xCache[hash] = xml;
+                if (hash.match(/xml/)) {
+                    loadFolder();
+                }
+            });
+        } else {
+            $.get( "desktop.xslt", function( xslt ) {
+                $.get( hash, function( xml ) {
+                    xCache["desktop.xslt"] = xslt;
+                    xCache[hash] = xml;
+                    if (hash.match(/xml/)) {
+                        loadFolder();
+                    }
+                });
+            });
+        }
     }
 }
 
 $( document ).ready( function() {
- loadFolder();
- $.get( "taskbar.xslt", function( xslt ) { $.get( "taskbar.xml", function( xml ) {
-  $('.taskbar').html(transform(xml, xslt));
-  $('.button').click( function( buttonClickEvent ) { loadFolder(buttonClickEvent);  } );
-  startTime();
-  windowResize();
- }); });
-
-/*	$('a[href=#magyarul]').click(function(e) {
-		e.preventDefault();
-		$("span").each(function() {
-			$(this).text($(this).text()
-				.replace("Home", "Kezdőlap")
-				.replace("Contact", "Kapcsolat")
-				.replace("Profiles", "Profilok")
-				.replace("Bookmarks", "Könyvjelzők")
-				.replace("Thankyou", "Köszönöm")
-				.replace("Downloads", "Letöltések")
-				.replace("Gallery", "Képtár")
-			);
-		});
-		return false;
-	});*/
+    loadFolder();
+    $.get( "taskbar.xslt", function( xslt ) {
+        $.get( "taskbar.xml", function( xml ) {
+            $('.taskbar').html(transform(xml, xslt));
+            $('.button').click( function( buttonClickEvent ) {
+                loadFolder();
+            });
+            startTime();
+            windowResize();
+        });
+    });
 });
 
 function transform(xml, xsl) {
