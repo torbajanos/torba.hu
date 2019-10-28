@@ -3,7 +3,7 @@
     <xsl:template match="/">
 
         <xsl:for-each select="icons/icon">
-            <a class="shortcut" href="{link}">
+            <a class="shortcut" href="javascript:processLink('{link}')">
                 <img src="{picture}"/>
                 <span>
                     <xsl:value-of select="title"/>

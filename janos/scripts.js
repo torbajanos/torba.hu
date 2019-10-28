@@ -21,7 +21,7 @@ $( window ).on( "popstate", function() {
 
 xCache = {};
 
-function loadFolder() {
+function loadFolder(event) {
  hash = window.location.hash;
  if ( hash == "" ) {
   hash = "#index.xml";
@@ -40,7 +40,9 @@ function loadFolder() {
   $.get( "desktop.xslt", function( xslt ) { $.get( hash, function( xml ) {
    xCache["desktop.xslt"] = xslt;
    xCache[hash] = xml;
-   loadFolder();
+   if (hash.match(/xml/)) {
+    loadFolder();
+   }
   }); });
   }
 }
@@ -49,7 +51,7 @@ $( document ).ready( function() {
  loadFolder();
  $.get( "taskbar.xslt", function( xslt ) { $.get( "taskbar.xml", function( xml ) {
   $('.taskbar').html(transform(xml, xslt));
-  $('.button').click( function( event ) { loadFolder(); } );
+  $('.button').click( function( event ) { loadFolder(event);  } );
   startTime();
   windowResize();
  }); });
@@ -114,3 +116,37 @@ $( document ).ready( function() {
 	}
 	$('a[href*='+name+']').parent().addClass('selected');
 });
+
+function processLink(url) {
+    text = 'megyunk <a href="'+url+'">ide</a>';
+    text = xCache[url];
+    if (text) {
+        urlLauncher(url, text);
+    } else {
+        if (! url.match(/http/)) {
+            $.get( url, function( text ) {
+                xCache[url] = text;
+                urlLauncher(url, text);
+            });
+        } else {
+            window.location.href=url;
+            return true;
+        }
+    }
+	return false;
+}
+function urlLauncher(url, text) {
+     if (url.match(/txt$/)) {
+         var t = setTimeout(function(){postprocess('<pre class="text-reader">'+text+'</pre>')},500);
+         return false;
+     }
+     if (! url.match(/xml$/)) {
+         var t = setTimeout(function(){postprocess(text)},500);
+        return false;
+     }
+     window.location.href=url;
+}
+function postprocess(text) {
+     $('.desktop').html(text);
+     return false;
+}
