@@ -69,10 +69,17 @@ function loadFolder(text, event) {
                 });
             });
     }
-
-
-    return;
-
+}
+function handleShortcutClicks() {
+    $('.shortcut').click( function( shortcutClickEvent ) {
+        url = shortcutClickEvent.delegateTarget.href;
+        if (url.match(/torba.hu/) && url.match(/txt$/)) {
+            shortcutClickEvent.preventDefault();
+            $.get( url, function( text ) {
+                $('.desktop').html('<pre class="text-reader">'+text+'</pre>');
+            });
+        }
+    });
 }
 
 $( document ).ready( function() {
@@ -120,34 +127,3 @@ $( document ).ready( function() {
 	$( window ).resize(windowResize).resize();
 });
 
-
-function handleShortcutClicks() {
-        $('.shortcut').click( function( shortcutClickEvent ) {
-            url = shortcutClickEvent.delegateTarget.href;
-            if (url.match(/#.*xml$/)) {
-                //shortcutClickEvent.preventDefault();
-            } else {
-    console.log("handleShortcutClicks", url);
-        if (url.match(/torba.hu/)) {
-            $.get( url, function( text ) {
-                urlLauncher(url, text);
-            });
-        } else {
-            window.location.href=url;
-            return true;
-        }
-            }
-        });
-}
-function urlLauncher(url, text) {
-     if (url.match(/txt$/)) {
-         // var t = setTimeout(function(){postprocess('<pre class="text-reader">'+text+'</pre>')},1500);
-         $('.desktop').html('<pre class="text-reader">'+text+'</pre>');
-         return;
-     }
-     window.location.href=url;
-}
-/*function postprocess(text) {
-    $('.desktop').html(text);
-}
-*/
