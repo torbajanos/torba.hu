@@ -21,9 +21,4 @@
 		<title>WinDirStat</title>
 		<link>http://windirstat.info/download.html</link>
 	</icon>
-	<icon>
-		<picture>pictures/back.png</picture>
-		<title>Back</title>
-		<link>desktop.html#downloads.xml</link>
-	</icon>
 </icons>

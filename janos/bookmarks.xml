@@ -85,9 +85,4 @@
         <title>Win 7 GRUB</title>
 		<link>http://askubuntu.com/questions/135272/how-to-boot-into-windows-7-when-grub-is-installed-in-the-windows-partition</link>
 	</icon>
-	<icon>
-		<picture>pictures/back.png</picture>
-		<title>Back</title>
-		<link>desktop.html#index.xml</link>
-	</icon>
 </icons>

@@ -46,9 +46,4 @@
 		<title>CouchSurfing</title>
 		<link>https://www.couchsurfing.com/users/1314605/profile</link>
 	</icon>
-	<icon>
-		<picture>pictures/back.png</picture>
-		<title>Back</title>
-		<link>desktop.html#index.xml</link>
-	</icon>
 </icons>

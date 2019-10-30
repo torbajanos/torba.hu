@@ -18,9 +18,9 @@ function addLeadingZero(i) {
 /*
  * Ha megvaltozik a hash az url vegen, akkor hivodik Chrome-ban es Firefoxban
  */
-//$( window ).on( "popstate", function() {
-//    loadFolder("Called on popstate");
-//});
+$( window ).on( "popstate", function() {
+    loadFolder();
+});
 
 xCache = {};
 
@@ -30,50 +30,49 @@ function loadFolder(text, event) {
     }
     hash = window.location.hash;
     if ( hash == "" ) {
-        hash = "#index.xml";
+        hash = "#desktop.xml";
     }
     if ( hash == "#...xml" ) {
         window.location.href = "..";
         return;
     }
-    hash = hash.substring(1,111);
+    hash = hash.substring(1,1000);
+
+    /*
+     * Selects current window's button on the taskbar
+     */
+    hashname = hash.split('.')[0];
+    $('.taskbar .selected').removeClass('selected');
+    $('a[href*="'+hashname+'"]').addClass('selected');
+
     xslt = xCache["desktop.xslt"];
     xml = xCache[hash];
-    if (xslt && xml) {
-        $('.desktop').html(transform(xml, xslt));
-        $('.shortcut').click( function( shortcutClickEvent ) {
-            url = shortcutClickEvent.delegateTarget.href;
-            if (url.match(/xml$/)) {
-                setTimeout(function(){
-                    loadFolder();
-                    shortcutClickEvent.preventDefault();
-                },100);
-            } else {
-                processLink(url);
-                shortcutClickEvent.preventDefault();
-            }
-        });
-    } else {
-        if (xslt) {
-            $.get( hash, function( xml ) {
-                xCache["desktop.xslt"] = xslt;
-                xCache[hash] = xml;
-                if (hash.match(/xml/)) {
-                    loadFolder();
-                }
-            });
+
+    if  (xslt) {
+        if  (xml) {
+            $('.desktop').html(transform(xml, xslt));
+            handleShortcutClicks();
         } else {
+            $.get( hash, function( xml ) {
+                xCache[hash] = xml;
+                $('.desktop').html(transform(xml, xslt));
+                handleShortcutClicks();
+            });
+        }
+    } else {
             $.get( "desktop.xslt", function( xslt ) {
                 $.get( hash, function( xml ) {
                     xCache["desktop.xslt"] = xslt;
                     xCache[hash] = xml;
-                    if (hash.match(/xml/)) {
-                        loadFolder();
-                    }
+                    $('.desktop').html(transform(xml, xslt));
+                    handleShortcutClicks();
                 });
             });
-        }
     }
+
+
+    return;
+
 }
 
 $( document ).ready( function() {
@@ -81,8 +80,8 @@ $( document ).ready( function() {
     $.get( "taskbar.xslt", function( xslt ) {
         $.get( "taskbar.xml", function( xml ) {
             $('.taskbar').html(transform(xml, xslt));
-            $('.button').click( function( buttonClickEvent ) {
-                loadFolder();
+            $('.taskbar .button').click( function( buttonClickEvent ) {
+                // loadFolder();
             });
             startTime();
             windowResize();
@@ -122,50 +121,33 @@ $( document ).ready( function() {
 });
 
 
-/*
- * Selects current window's button on the taskbar
- */
-$( document ).ready( function() {
-	var filename = window.location.href.split('/').pop();
-	var name = filename.split('.')[0];
-	if ( name == 'index' ) {
-		return;
-	}
-	$('a[href*='+name+']').parent().addClass('selected');
-});
-
-function processLink(url) {
-    console.log("processLink", url);
-    text = 'megyunk <a href="'+url+'">ide</a>';
-    text = xCache[url];
-    if (text) {
-        urlLauncher(url, text);
-    } else {
-        if (! url.match(/http/)) {
+function handleShortcutClicks() {
+        $('.shortcut').click( function( shortcutClickEvent ) {
+            url = shortcutClickEvent.delegateTarget.href;
+            if (url.match(/#.*xml$/)) {
+                //shortcutClickEvent.preventDefault();
+            } else {
+    console.log("handleShortcutClicks", url);
+        if (url.match(/torba.hu/)) {
             $.get( url, function( text ) {
-                xCache[url] = text;
                 urlLauncher(url, text);
             });
         } else {
             window.location.href=url;
             return true;
         }
-    }
-	return false;
+            }
+        });
 }
 function urlLauncher(url, text) {
-    console.log("urlLauncher", url, text);
      if (url.match(/txt$/)) {
-         var t = setTimeout(function(){postprocess('<pre class="text-reader">'+text+'</pre>')},500);
-         return false;
-     }
-     if (! url.match(/xml$/)) {
-         var t = setTimeout(function(){postprocess(text)},500);
-        return false;
+         // var t = setTimeout(function(){postprocess('<pre class="text-reader">'+text+'</pre>')},1500);
+         $('.desktop').html('<pre class="text-reader">'+text+'</pre>');
+         return;
      }
      window.location.href=url;
 }
-function postprocess(text) {
-     $('.desktop').html(text);
-     return false;
+/*function postprocess(text) {
+    $('.desktop').html(text);
 }
+*/

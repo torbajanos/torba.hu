@@ -78,9 +78,4 @@
         <title>Format Output</title>
         <link>http://stackoverflow.com/questions/8615422/php-xml-how-to-output-nice-format</link>
     </icon>
-    <icon>
-        <picture>pictures/back.png</picture>
-        <title>Back</title>
-        <link>desktop.html#index.xml</link>
-    </icon>
 </icons>

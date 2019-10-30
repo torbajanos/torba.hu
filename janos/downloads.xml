@@ -9,26 +9,26 @@
 	<icon>
 		<picture>pictures/macosx.png</picture>
 		<title>MacOSX</title>
-		<link>desktop.html#macosx.xml</link>
+        <link>#macosx.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/playstore.png</picture>
 		<title>Android</title>
-		<link>desktop.html#android.xml</link>
+        <link>#android.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/windows.png</picture>
 		<title>Windows</title>
-		<link>desktop.html#windows.xml</link>
+        <link>#windows.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/linux.png</picture>
 		<title>Linux</title>
-		<link>desktop.html#linux.xml</link>
+        <link>#linux.xml</link>
 	</icon>
 	<icon>
 		<picture>pictures/back.png</picture>
 		<title>Back</title>
-		<link>desktop.html#index.xml</link>
+        <link>#index.xml</link>
 	</icon>
 </icons>

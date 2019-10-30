@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="index.xslt"?>
 <users>
     <user>
-        <picture>janos.jpg</picture>
+        <picture>janos/pictures/janos.jpg</picture>
         <name>János</name>
         <link>janos/</link>
     </user>

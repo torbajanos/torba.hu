@@ -31,9 +31,4 @@
 		<title>QRvCard</title>
 		<link>pictures/qrcode.png</link>
 	</icon>
-	<icon>
-		<picture>pictures/back.png</picture>
-		<title>Back</title>
-		<link>desktop.html#index.xml</link>
-	</icon>
 </icons>

@@ -11,9 +11,4 @@
 		<title>Workrave</title>
 		<link>http://www.workrave.org/download/</link>
 	</icon>
-	<icon>
-		<picture>pictures/back.png</picture>
-		<title>Back</title>
-		<link>desktop.html#downloads.xml</link>
-	</icon>
 </icons>
