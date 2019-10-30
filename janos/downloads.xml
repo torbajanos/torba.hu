@@ -26,9 +26,4 @@
 		<title>Linux</title>
         <link>#linux.xml</link>
 	</icon>
-	<icon>
-		<picture>pictures/back.png</picture>
-		<title>Back</title>
-        <link>#index.xml</link>
-	</icon>
 </icons>
