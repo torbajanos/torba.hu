@@ -31,4 +31,9 @@
 		<title>Wake up</title>
 		<link>#vicc/wakeup.png</link>
 	</icon>
+	<icon>
+		<picture>vicc/Bundas macskatappancs.jpg</picture>
+		<title>Viccek</title>
+		<link>#vicc</link>
+	</icon>
 </icons>
