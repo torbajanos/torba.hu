@@ -34,6 +34,6 @@
 	<icon>
 		<picture>vicc/Bundas macskatappancs.jpg</picture>
 		<title>Viccek</title>
-		<link>#vicc</link>
+		<link>#vicc/.lightbox</link>
 	</icon>
 </icons>

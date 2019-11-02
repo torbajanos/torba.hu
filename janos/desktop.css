@@ -87,35 +87,53 @@ html { background: url('pictures/blue-tile.jpg') repeat fixed; }
 
 .text-reader {
     background-color: white;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     overflow: auto;
     height: 100%;
     position: relative;
 }
 .image-viewer {
-	border-radius: 5px;
-	position: relative;
+	/* border-radius: 5px; */
+	/* position: relative; */
 	/* float: left; */
 	overflow: auto;
 }
 .image-viewer img {
-    position: relative;
+    /* position: relative; */
     /* float: left; */
     /* overflow: auto; */
 }
 pre {
     margin: 0;
 }
+.hidden-window {
+    display: none;
+}
 .window {
-	padding: 10px;
+	/* padding: 10px; */
 	margin: 10px;
 	border-radius: 5px;
-	/* border: 5px solid blue; */
+	border: 5px solid blue;
 	background-color: blue;
 	/* float: left; */
 }
 .window .title {
-    padding: 5px 5px 10px 5px;
-    color: white;
+    padding: 5px 5px 5px 5px;
+    /* color: white; */
     font-weight: bold;
+    /* border-bottom: solid; */
+    margin-bottom: 5px;
+    background-color: #CCC;
+}
+.window-minus-title {
+    position: relative;
+    overflow: auto;
+}
+.thumbnail {
+    max-width: 200px;
+    max-height: 200px;
+}
+.close-button {
+    background-color: red;
+	border-radius: 5px;
 }

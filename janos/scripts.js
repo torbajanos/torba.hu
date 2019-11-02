@@ -55,11 +55,21 @@ function loadFolder() {
         if (url.match(/torba.hu/) && url.match(/txt$/)) {
             $.get( hash, function( text ) {
                 $('.desktop').html('<div class="window"><div class="title">'+hash+'</div><pre class="text-reader window-minus-title">'+text+'</pre></div>');
+                $( "body" ).append('<div id="dialog2" title="Basic dialog2"><p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the "x" icon.</p></div>');
                 windowResize();
             });
         } else if (url.match(/torba.hu/) && url.match(/(png|gif|jpg|jpeg)$/)) {
             $('.desktop').html('<div class="window"><div class="title">'+hash+'</div><div class="image-viewer window-minus-title"><img class="viewed-image" src="'+hash+'" /></div></div>');
             $('.viewed-image').load( function(){ windowResize() });
+        } else if (url.match(/torba.hu/) && url.match(/.lightbox$/)) {
+            hash = hash.replace(/.lightbox$/, "");
+            $.get( hash, function( text ) {
+                $('.hidden-window').html(text);
+                $('.desktop').html('<div class="window"><div class="title">'+hash+'</div><div class="gallery window-minus-title"></div></div>');
+                $(".hidden-window a").each( function(i, a){ h="vicc/"+$(a).attr("href"); if (h.match(/(png|gif|jpg|jpeg)$/i)) { $(".gallery").append('<a data-lightbox="gallery" href="'+h+'"><img class="thumbnail" src="'+h+'" /></a>');} });
+                windowResize();
+	            // $('.thumbnail-image').load( function(){ windowResize() });
+            });
         } else {
             $.get( "desktop.xslt", function( xslt ) {
                 $.get( hash, function( xml ) {
