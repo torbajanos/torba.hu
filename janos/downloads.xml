@@ -4,7 +4,7 @@
 	<icon>
 		<picture>pictures/raspberry.png</picture>
 		<title>Raspbian</title>
-		<link>scripts/install_raspbian_apps.txt</link>
+		<link>#scripts/install_raspbian_apps.txt</link>
 	</icon>
 	<icon>
 		<picture>pictures/macosx.png</picture>
@@ -25,5 +25,10 @@
 		<picture>pictures/linux.png</picture>
 		<title>Linux</title>
         <link>#linux.xml</link>
+	</icon>
+	<icon>
+		<picture>vicc/wakeup.png</picture>
+		<title>Wake up</title>
+		<link>#vicc/wakeup.png</link>
 	</icon>
 </icons>

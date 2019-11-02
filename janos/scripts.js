@@ -8,7 +8,7 @@ function startTime() {
     h = addLeadingZero(h);
     m = addLeadingZero(m);
     $(".clock").html( h + ":" + m);
-    var t = setTimeout(function(){startTime()},1000);
+    var t = setTimeout(function(){startTime()},60*1000);
 }
 function addLeadingZero(i) {
     if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
@@ -24,19 +24,13 @@ $( window ).on( "popstate", function() {
 
 xCache = {};
 
-function loadFolder(text, event) {
-    if (text) {
-        console.log("loadFolder", text, event);
-    }
+function loadFolder() {
+    url = window.location.href;
     hash = window.location.hash;
     if ( hash == "" ) {
-        hash = "#desktop.xml";
+        hash = "desktop.xml";
     }
-    if ( hash == "#...xml" ) {
-        window.location.href = "..";
-        return;
-    }
-    hash = hash.substring(1,1000);
+    hash = hash.replace(/#/,"");
 
     /*
      * Selects current window's button on the taskbar
@@ -48,38 +42,34 @@ function loadFolder(text, event) {
     xslt = xCache["desktop.xslt"];
     xml = xCache[hash];
 
-    if  (xslt) {
+    if  (xslt && url.match(/.xml$/)) {
         if  (xml) {
             $('.desktop').html(transform(xml, xslt));
-            handleShortcutClicks();
         } else {
             $.get( hash, function( xml ) {
                 xCache[hash] = xml;
                 $('.desktop').html(transform(xml, xslt));
-                handleShortcutClicks();
             });
         }
     } else {
+        if (url.match(/torba.hu/) && url.match(/txt$/)) {
+            $.get( hash, function( text ) {
+                $('.desktop').html('<div class="window"><div class="title">'+hash+'</div><pre class="text-reader window-minus-title">'+text+'</pre></div>');
+                windowResize();
+            });
+        } else if (url.match(/torba.hu/) && url.match(/(png|gif|jpg|jpeg)$/)) {
+            $('.desktop').html('<div class="window"><div class="title">'+hash+'</div><div class="image-viewer window-minus-title"><img class="viewed-image" src="'+hash+'" /></div></div>');
+            $('.viewed-image').load( function(){ windowResize() });
+        } else {
             $.get( "desktop.xslt", function( xslt ) {
                 $.get( hash, function( xml ) {
                     xCache["desktop.xslt"] = xslt;
                     xCache[hash] = xml;
                     $('.desktop').html(transform(xml, xslt));
-                    handleShortcutClicks();
                 });
             });
-    }
-}
-function handleShortcutClicks() {
-    $('.shortcut').click( function( shortcutClickEvent ) {
-        url = shortcutClickEvent.delegateTarget.href;
-        if (url.match(/torba.hu/) && url.match(/txt$/)) {
-            shortcutClickEvent.preventDefault();
-            $.get( url, function( text ) {
-                $('.desktop').html('<pre class="text-reader">'+text+'</pre>');
-            });
         }
-    });
+    }
 }
 
 $( document ).ready( function() {
@@ -87,9 +77,6 @@ $( document ).ready( function() {
     $.get( "taskbar.xslt", function( xslt ) {
         $.get( "taskbar.xml", function( xml ) {
             $('.taskbar').html(transform(xml, xslt));
-            $('.taskbar .button').click( function( buttonClickEvent ) {
-                // loadFolder();
-            });
             startTime();
             windowResize();
         });
@@ -111,7 +98,19 @@ function transform(xml, xsl) {
  * Resize taskbar buttons depending on the screensize
  */
 function windowResize() {
-	if ($(window).width() < 350) {
+
+//    $('.window').each(function(i, win){ $(win).attr("data-before", win.title); });
+    $('.window').css('max-height', '');
+    $('.window-minus-title').css('max-height', '');
+    if ($('.window').height() + 110 >= $(window).height() ){
+        $('.window').css('max-height', ($(window).height() - 110)+'px');
+        $('.window-minus-title').css('max-height', ($(window).height() - 110 - 33)+'px');
+    }
+    $('.window').css('max-width', '');
+    if ($('.window').width() + 65 >= $(window).width() ){
+        $('.window').css('max-width', ($(window).width() - 65)+'px');
+    }
+    if ($(window).width() < 350) {
 		$('.taskbar .button').filter(".middle").hide();
 	} else {
 		$('.taskbar .button').filter(".middle").show();
@@ -126,4 +125,10 @@ function windowResize() {
 $( document ).ready( function() {
 	$( window ).resize(windowResize).resize();
 });
+var windowWidth;
+var windowHeight;
 
+  $( function() {
+    // $( "body" ).append('<div id="dialog2" title="Basic dialog2"><p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the "x" icon.</p></div>');
+    // $( "#dialog2" ).dialog();
+  } );
