@@ -1,28 +1,41 @@
-/*
- * Ha megvaltozik a hash az url vegen, akkor hivodik Chrome-ban es Firefoxban
- */
-$( window ).on( "popstate", function() {
-    loadFolder();
-});
 $( document ).ready( function() {
 	$( window ).resize(windowResize).resize();
+
     $.get( "taskbar.xslt", function( xslt ) {
         $.get( "taskbar.xml", function( xml ) {
-            $('.taskbar').html(transform(xml, xslt));
+        	xCache["taskbar.xslt"] = xslt;
+        	xCache["taskbar.xml"] = xml;
+            $('.taskbar').html(transform(xml, xslt)).find(".middle").each(function(){
+            	$(this).click(shotcutClick);
+            });
             startTime();
-            loadFolder();
+            // loadFolder();
             windowResize();
         });
     });
-        lightbox.option({
-          'resizeDuration': 200,
-          'wrapAround': true,
-          'fadeDuration': 0,
-          'imageFadeDuration': 0,
-          'resizeDuration': 0
-        })
-});
+	$.get( "desktop.xslt", function( xslt ) {
+        $.get( "desktop.xml", function( xml ) {
+        	xCache["desktop.xslt"] = xslt;
+        	xCache["desktop.xml"] = xml;
+            $('.desktop').html(transform(xml, xslt));
+            $('.desktop').html(transform(xml, xslt)).find(".shortcut").each(function(){
+            	$(this).click(shotcutClick);
+            });
+        });
+    });
 
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'fadeDuration': 0,
+        'imageFadeDuration': 0,
+        'resizeDuration': 0
+    });
+});
+function shotcutClick() {
+	clickedElement = this;
+	loadFolder(clickedElement);
+}
 xCache = {};
 
 dialogOptions = {
@@ -41,8 +54,17 @@ dialogOptions = {
     close: function(event, ui){
         $(this).dialog('destroy').remove();
     },
-	position: { my: "left top", at: "left top", of: window, collision: "none" }
+	position: {
+	    my: "left top",
+	    at: "left top",
+	    of: window,
+	    collision: "none"
+	}
 };
+folderDialogOptions = $.extend( {}, dialogOptions, {
+	create: {},
+    position: {}
+});
 
 dialogExtendOptions = {
     "closable" : true,
@@ -64,13 +86,17 @@ dialogExtendOptions = {
     }
 }
 
-function loadFolder() {
-    url = window.location.href;
-    hash = window.location.hash;
+function loadFolder(clickedElement) {
+    if ( clickedElement ) {
+        url = clickedElement.href;
+    } else {
+	    url = window.location.href;
+    }
+    hash = url.replace(/^[^#]+#/,"");
     if ( hash == "" ) {
         hash = "desktop.xml";
+       	return;
     }
-    hash = hash.replace(/#/,"");
 
     /*
      * Selects current window's button on the taskbar
@@ -83,47 +109,48 @@ function loadFolder() {
     xml = xCache[hash];
 
 
-    if  (xslt && url.match(/.xml$/)) {
-        if  (xml) {
-            $('.desktop').html(transform(xml, xslt));
-        } else {
-            $.get( hash, function( xml ) {
-                xCache[hash] = xml;
-                $('.desktop').html(transform(xml, xslt));
-            });
-        }
-    } else {
-        if (url.match(/torba.hu/) && url.match(/txt$/)) {
-            $.get( hash, function( text ) {
-                $( "body" ).append('<div class="parbeszedablak" title="'+hash+'"><pre>'+text+'</pre></div>');
-                $( ".parbeszedablak" ).dialog(dialogOptions).dialogExtend(dialogExtendOptions);
-            });
-        } else if (url.match(/torba.hu/) && url.match(/(png|gif|jpg|jpeg)$/)) {
-            $( "body" ).append('<div class="parbeszedablak" title="'+hash+'"><img class="viewed-image" src="'+hash+'" /></div>');
-            $( ".parbeszedablak" ).dialog(dialogOptions).dialogExtend(dialogExtendOptions);
-        } else if (url.match(/torba.hu/) && url.match(/.lightbox$/)) {
-            hash = hash.replace(/.lightbox$/, "");
-            $.get( hash, function( text ) {
-                $('.hidden').html(text);
-                $('body').append('<div class="parbeszedablak gallery" title="'+hash+' galeria"></div>');
-                $(".hidden a").each( function(i, a){
-                    h=hash+"/"+$(a).attr("href");
-                    if (h.match(/(png|gif|jpg|jpeg)$/i)) {
-                        $(".gallery").append('<a data-lightbox="gallery" href="'+h+'"><img class="thumbnail" src="'+h+'" /></a>');
-                    }
-                });
-                $( ".parbeszedablak" ).dialog(dialogOptions).dialogExtend(dialogExtendOptions);
-            });
-        } else {
-            $.get( "desktop.xslt", function( xslt ) {
-                $.get( hash, function( xml ) {
-                    xCache["desktop.xslt"] = xslt;
-                    xCache[hash] = xml;
-                    $('.desktop').html(transform(xml, xslt));
-                });
-            });
-        }
+	if ( ! xslt ) {
+		$.get( "desktop.xslt", function( xslt ) {
+        	xCache["desktop.xslt"] = xslt;
+			loadFolder(clickedElement);
+		});
+		return;
+	}
+    if  (url.match(/.(xml|txt)$/) && ! xml ) {
+		$.get( hash, function( xml ) {
+        	xCache[hash] = xml;
+			loadFolder(clickedElement);
+		});
+		return;
     }
+	// xslt is és xml is van, ha kellett
+    if  (url.match(/.xml$/)) {
+        $('<div class="parbeszedablak folder" title="'+hashname+'"></div>').appendTo($('.desktop')).html(transform(xml, xslt))
+   	        .dialog(folderDialogOptions).dialogExtend(dialogExtendOptions)
+   	        .find(".shortcut").each(function(){ $(this).click(shotcutClick); });
+    } else if  (url.match(/.txt$/)) {
+    	text = xml;
+        $('<div class="parbeszedablak" title="'+hashname+'"><pre>'+text+'</pre></div>').appendTo( $(".desktop") )
+        	.dialog(dialogOptions).dialogExtend(dialogExtendOptions);
+    } else if (url.match(/(png|gif|jpg|jpeg)$/)) {
+        $('<div class="parbeszedablak" title="'+hashname+'"><img class="viewed-image" src="'+hash+'" /></div>').appendTo( $(".desktop") )
+        	.dialog(dialogOptions).dialogExtend(dialogExtendOptions);
+    } else if (url.match(/.lightbox$/)) {
+    	html = xml;
+        $('.hidden').html(html);
+        gallery = $('<div class="parbeszedablak gallery" title="'+hashname+' galeria"></div>').appendTo( $('.desktop') )
+            .dialog(dialogOptions).dialogExtend(dialogExtendOptions);
+        $(".hidden a").each( function(i, a) {
+        	h = hash+"/"+$(a).attr("href");
+            if (h.match(/(png|gif|jpg|jpeg)$/i)) {
+				$( gallery ).append('<a data-lightbox="gallery" href="'+h+'"><img class="thumbnail" src="'+h+'" /></a>');
+            }
+        });
+    } else {
+    	alert("Shortcut to unknown filetype.");
+        $('<div class="parbeszedablak folder" title="Error">Shortcut to unknown filetype ('+hash+').</div>').appendTo($('.desktop'))
+   	        .dialog(folderDialogOptions)
+   	}
 }
 function transform(xml, xsl) {
   if (document.implementation && document.implementation.createDocument)
@@ -135,6 +162,9 @@ function transform(xml, xsl) {
    return "ERROR";
   }
 }
+var ID = function () {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
 
 /*
  * Resize taskbar buttons depending on the screensize
@@ -157,36 +187,6 @@ function windowResize() {
 	} else {
 		$('.taskbar .button span').show().parent().filter("a").addClass("with-text").removeClass("icon-only");
 	}
-/*
-    $( ".parbeszedablak" ).each( function(i, parbeszedablak) {
-        	$thisDialog = $(parbeszedablak);
-        	maxHeight = $(window).height() - $(".taskbar").height();
-            maxWidth = $(window).width();
-
-		    $thisDialog.dialog("option", "maxHeight", maxHeight);
-	    	$thisDialog.dialog("option", "maxWidth", maxWidth);
-	    
-		parentTop = $thisDialog.parent().css("top");
-		thisHeight = $thisDialog.dialog("option", "height");
-		if ( 0 > maxHeight - thisHeight - parentTop) {
-		    if (0 < maxHeight - thisHeight - parentTop) {
-                $thisDialog.parent().css( "top", maxHeight - thisHeight )
-		    } else {
-                $thisDialog.parent().css( "top", 0 )
-    		    $thisDialog.dialog("option", "height", maxHeight);
-		    }
-		}
-		parentLeft = $thisDialog.parent().css("left");
-		thisWidth = $thisDialog.dialog("option", "width");
-		if ( 0 > maxWidth - thisWidth - parentLeft) {
-		    if ( 0 < maxHeight - thisHeight) {
-                $thisDialog.parent().css("left", maxHeight - thisHeight);
-		    } else {
-                $thisDialog.parent().css("left", 0);
-    		    $thisDialog.dialog("option", "width", maxWidth);
-		    }
-		}
-    }); */
 }
 
 /*
