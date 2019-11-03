@@ -6,14 +6,21 @@ $( window ).on( "popstate", function() {
 });
 $( document ).ready( function() {
 	$( window ).resize(windowResize).resize();
-    loadFolder();
     $.get( "taskbar.xslt", function( xslt ) {
         $.get( "taskbar.xml", function( xml ) {
             $('.taskbar').html(transform(xml, xslt));
             startTime();
+            loadFolder();
             windowResize();
         });
     });
+        lightbox.option({
+          'resizeDuration': 200,
+          'wrapAround': true,
+          'fadeDuration': 0,
+          'imageFadeDuration': 0,
+          'resizeDuration': 0
+        })
 });
 
 xCache = {};
@@ -23,21 +30,18 @@ dialogOptions = {
         $thisDialog = $(this);
             windowResize($thisDialog);
         	maxHeight = $(window).height() - $(".taskbar").height();
+        	maxWidth = $(window).width() - 8;
 		    $thisDialog.dialog("option", "maxHeight", maxHeight);
-	    	$thisDialog.dialog("option", "maxWidth", $(window).width());
+	    	$thisDialog.dialog("option", "maxWidth", maxWidth);
     		$thisDialog.dialog("option", "height", maxHeight);
-		    $thisDialog.dialog("option", "width", $(window).width());
-            $thisDialog.parent().css( "top", 0 )
+		    $thisDialog.dialog("option", "width", maxWidth);
+            $thisDialog.parent().css( "top", 0 );
             $thisDialog.parent().css("left", 0);
     },
     close: function(event, ui){
         $(this).dialog('destroy').remove();
     },
-    // show: { effect: "blind", duration: 400 },
-    // hide: "puff",
-    top: 10,
-    left: 1
-    // height: 200
+	position: { my: "left top", at: "left top", of: window, collision: "none" }
 };
 
 dialogExtendOptions = {
@@ -153,7 +157,7 @@ function windowResize() {
 	} else {
 		$('.taskbar .button span').show().parent().filter("a").addClass("with-text").removeClass("icon-only");
 	}
-
+/*
     $( ".parbeszedablak" ).each( function(i, parbeszedablak) {
         	$thisDialog = $(parbeszedablak);
         	maxHeight = $(window).height() - $(".taskbar").height();
@@ -165,7 +169,7 @@ function windowResize() {
 		parentTop = $thisDialog.parent().css("top");
 		thisHeight = $thisDialog.dialog("option", "height");
 		if ( 0 > maxHeight - thisHeight - parentTop) {
-		    if (0 < maxHeight - thisHeight) {
+		    if (0 < maxHeight - thisHeight - parentTop) {
                 $thisDialog.parent().css( "top", maxHeight - thisHeight )
 		    } else {
                 $thisDialog.parent().css( "top", 0 )
@@ -182,7 +186,7 @@ function windowResize() {
     		    $thisDialog.dialog("option", "width", maxWidth);
 		    }
 		}
-    });
+    }); */
 }
 
 /*
