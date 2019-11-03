@@ -1,6 +1,12 @@
-{ margin: 0; padding: 0; }
-html { background: url('pictures/blue-tile.jpg') repeat fixed; }
-
+{
+    margin: 0; padding: 0;
+}
+html {
+    background: url('pictures/blue-tile.jpg') repeat fixed;
+}
+body {
+    overflow:hidden;
+}
 /* fix */
 .ui-dialog, .ui-dialog-content {
 	box-sizing: content-box;
@@ -9,10 +15,11 @@ html { background: url('pictures/blue-tile.jpg') repeat fixed; }
 .desktop {
 	float: left;
 	margin-bottom: 50px;
+	/* overflow: hidden; */
 }
 .thumbnail {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 150px;
+    max-height: 150px;
 }
 .hidden {
     display: none;
@@ -54,6 +61,7 @@ html { background: url('pictures/blue-tile.jpg') repeat fixed; }
 	left: 0px;
 	bottom: 0px;
 	position: fixed;
+	/* z-index: 1000; */
 }
 .taskbar .button {
 	float: left;
@@ -96,42 +104,3 @@ html { background: url('pictures/blue-tile.jpg') repeat fixed; }
 .taskbar .selected {
 	background: #1B4CB5;
 }
-/*
-.text-reader {
-    background-color: white;
-    overflow: auto;
-    height: 100%;
-    position: relative;
-}
-.image-viewer {
-	overflow: auto;
-}
-.image-viewer img {
-}
-pre {
-    margin: 0;
-}
-.hidden-window {
-    display: none;
-}
-.window {
-	margin: 10px;
-	border-radius: 5px;
-	border: 5px solid blue;
-	background-color: blue;
-}
-.window .title {
-    padding: 5px 5px 5px 5px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    background-color: #CCC;
-}
-.window-minus-title {
-    position: relative;
-    overflow: auto;
-}
-.close-button {
-    background-color: red;
-	border-radius: 5px;
-}
-*/
