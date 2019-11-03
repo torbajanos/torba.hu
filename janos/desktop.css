@@ -11,6 +11,9 @@ body {
 .ui-dialog, .ui-dialog-content {
 	box-sizing: content-box;
 }
+.ui-menu {
+	width: 200px;
+}
 
 .desktop {
 	float: left;
@@ -35,7 +38,7 @@ body {
 	padding: 0 5px;
 }
 .desktop-icon {
-    float: none;
+    /* float: none; */
 }
 .shortcut img {
     width:64px;
@@ -75,7 +78,7 @@ body {
 	display: block;
 }
 .taskbar .clock-button {
-	float: right;
+	float: left;
 }
 .taskbar .button img {
 	width: 24px;

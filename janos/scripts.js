@@ -11,6 +11,15 @@ $( document ).ready( function() {
             startTime();
             loadFolder();
             windowResize();
+            $('.taskbar').find(".home").each(function(){
+            	$(this).click(function(){
+            	    // mind bezárása
+            	    $(".parbeszedablak").each(function(){
+            	        $(this).dialog("destroy").remove();;
+            	    });
+            	});
+            });
+            $( "#menu" ).menu().hide();
         });
     });
 	$.get( "desktop.xslt", function( xslt ) {
@@ -92,9 +101,8 @@ function loadFolder(clickedElement) {
     } else {
 	    url = window.location.href;
     }
-    hash = url.replace(/^[^#]+#/,"");
-    if ( hash == "" ) {
-        hash = "desktop.xml";
+    hash = url.replace(/^[^#]+#/, "");
+    if ( hash == "" || hash == "desktop.xml") {
        	return;
     }
 
@@ -141,7 +149,15 @@ function loadFolder(clickedElement) {
         	.appendTo($('.desktop'))
         	.html(transform(xml, xslt))
    	        .dialog(folderDialogOptions).dialogExtend(dialogExtendOptions)
-   	        .find(".shortcut").each(function(){ $(this).click(shotcutClick); });
+   	        .find(".shortcut").each(function(){
+   	        	if (this.href.match(/(png|gif|jpg|jpeg)$/)) {
+   		        	icon = $(this).children().filter("img")[0];
+   	    	    	$(this).attr("data-lightbox", icon.src);
+   	    	    	this.href = icon.src;
+   	        	} else {
+	   	        	$(this).click(shotcutClick);
+   	        	}
+   	        });
     } else if  (url.match(/.(txt|sh|sql)$/)) {
     	text = xml;
         $('<div class="parbeszedablak" title="'+hashname+'"><pre>'+text+'</pre></div>')
@@ -174,7 +190,9 @@ function loadFolder(clickedElement) {
             }
         });
     } else {
-    	
+    	if (hash == window.location.href) {
+    	    return;
+    	}
         $('<div class="parbeszedablak folder" title="Redirecting">'+hash+'</div>')
         	.appendTo($('.desktop'))
    	        .dialog(folderDialogOptions)

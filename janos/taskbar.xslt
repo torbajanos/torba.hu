@@ -7,26 +7,27 @@
             <span>Home</span>
         </a>
 
-        <xsl:for-each select="buttons/button">
-            <a class="button middle" href="#{link}.xml">
-                <img src="pictures/{link}.png"/>
-                <span>
-                    <xsl:value-of select="title"/>
-                </span>
-            </a>
-        </xsl:for-each>
+        <div class="button clock-button">
+            <span class="clock">
+                00:00
+            </span>
+        </div>
+        <!--
+                <xsl:for-each select="buttons/button">
+                    <a class="button middle" href="#{link}.xml">
+                        <img src="pictures/{link}.png"/>
+                        <span>
+                            <xsl:value-of select="title"/>
+                        </span>
+                    </a>
+                </xsl:for-each>
+        -->
         <a class="button" href="..">
             <img src="pictures/turnoff.png"/>
             <span>
                 Logout
             </span>
         </a>
-
-        <div class="button clock-button">
-            <span class="clock">
-                00:00
-            </span>
-        </div>
 
     </xsl:template>
 </xsl:stylesheet>

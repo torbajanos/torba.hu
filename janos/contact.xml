@@ -27,7 +27,7 @@
 		<link>#torbajanos.vcf</link>
 	</icon>
 	<icon>
-		<picture>pictures/qrcodeicon.png</picture>
+        <picture>pictures/qrcode.png</picture>
 		<title>QRvCard</title>
 		<link>#pictures/qrcode.png</link>
 	</icon>
