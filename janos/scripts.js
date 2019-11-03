@@ -1,40 +1,39 @@
 /*
- * Updates the clock in the corner
- */
-function startTime() {
-    var today=new Date();
-    var h=today.getHours();
-    var m=today.getMinutes();
-    h = addLeadingZero(h);
-    m = addLeadingZero(m);
-    $(".clock").html( h + ":" + m);
-    var t = setTimeout(function(){startTime()},60*1000);
-}
-function addLeadingZero(i) {
-    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-}
-
-/*
  * Ha megvaltozik a hash az url vegen, akkor hivodik Chrome-ban es Firefoxban
  */
 $( window ).on( "popstate", function() {
     loadFolder();
+});
+$( document ).ready( function() {
+	$( window ).resize(windowResize).resize();
+    loadFolder();
+    $.get( "taskbar.xslt", function( xslt ) {
+        $.get( "taskbar.xml", function( xml ) {
+            $('.taskbar').html(transform(xml, xslt));
+            startTime();
+            windowResize();
+        });
+    });
 });
 
 xCache = {};
 
 dialogOptions = {
     create: function(event, ui) {
-        windowResize();
-        $(this).parent().css( "top", 0 ).css("left", 0);
-        $(this).dialog("option", "maxHeight", $(window).height() - $(".taskbar").height() ).dialog("option", "height", $(this).dialog("option", "maxHeight"));
-        $(this).dialog("option", "maxWidth", $(window).width() ).dialog("option", "width", $(this).dialog("option", "maxwidth"));
+        $thisDialog = $(this);
+            windowResize($thisDialog);
+        	maxHeight = $(window).height() - $(".taskbar").height();
+		    $thisDialog.dialog("option", "maxHeight", maxHeight);
+	    	$thisDialog.dialog("option", "maxWidth", $(window).width());
+    		$thisDialog.dialog("option", "height", maxHeight);
+		    $thisDialog.dialog("option", "width", $(window).width());
+            $thisDialog.parent().css( "top", 0 )
+            $thisDialog.parent().css("left", 0);
     },
     close: function(event, ui){
         $(this).dialog('destroy').remove();
     },
-    // show: { effect: "blind", duration: 1000 },
+    // show: { effect: "blind", duration: 400 },
     // hide: "puff",
     top: 10,
     left: 1
@@ -122,18 +121,6 @@ function loadFolder() {
         }
     }
 }
-
-$( document ).ready( function() {
-    loadFolder();
-    $.get( "taskbar.xslt", function( xslt ) {
-        $.get( "taskbar.xml", function( xml ) {
-            $('.taskbar').html(transform(xml, xslt));
-            startTime();
-            windowResize();
-        });
-    });
-});
-
 function transform(xml, xsl) {
   if (document.implementation && document.implementation.createDocument)
   {
@@ -153,40 +140,6 @@ function windowResize() {
     ww = $(window).width();
 
     /*
-     * Resize old own created windows
-    $('.window').css('max-height', '');
-    $('.window-minus-title').css('max-height', '');
-    if ($('.window').height() + 110 >= $(window).height() ){
-        $('.window').css('max-height', ($(window).height() - 110)+'px');
-        $('.window-minus-title').css('max-height', ($(window).height() - 110 - 33)+'px');
-    }
-    $('.window').css('max-width', '');
-    if ($('.window').width() + 65 >= $(window).width() ){
-        $('.window').css('max-width', ($(window).width() - 65)+'px');
-    }*/
-
-    $( ".parbeszedablak" ).each( function(i, parbeszedablak) {
-        $parbeszedablak = $(parbeszedablak);
-        //$parbeszedablak.dialog("option", "maxWidth", ww);
-        //$parbeszedablak.dialog("option", "maxHeight", wh);
-        //if (wh > $parbeszedablak.height() ){
-            //$parbeszedablak.dialog( "option", "height", "auto" );
-        //}
-        //if (ww <= $parbeszedablak.width() ){
-            //$parbeszedablak.dialog( "option", "width", "auto" );
-        //}
-        if (wh <= $parbeszedablak.height() ){
-            //$parbeszedablak.dialog( "option", "height", wh-70 );
-            //$parbeszedablak.height(wh-70);
-        }
-        if (ww <= $parbeszedablak.width() ){
-            //$parbeszedablak.dialog( "option", "width", ww-30 );
-            //$parbeszedablak.width(ww-30);
-        }
-        // $( ".selector" ).dialog( "option", "resizable", true );
-    });
-
-    /*
      * Resize Taskbar
      */
     if ($(window).width() < 350) {
@@ -200,14 +153,52 @@ function windowResize() {
 	} else {
 		$('.taskbar .button span').show().parent().filter("a").addClass("with-text").removeClass("icon-only");
 	}
-}
-$( document ).ready( function() {
-	$( window ).resize(windowResize).resize();
-});
-var windowWidth;
-var windowHeight;
 
-  $( function() {
-    // $( "body" ).append('<div id="dialog2" title="Basic dialog2"><p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the "x" icon.</p></div>');
-    // $( "#dialog2" ).dialog();
-  } );
+    $( ".parbeszedablak" ).each( function(i, parbeszedablak) {
+        	$thisDialog = $(parbeszedablak);
+        	maxHeight = $(window).height() - $(".taskbar").height();
+            maxWidth = $(window).width();
+
+		    $thisDialog.dialog("option", "maxHeight", maxHeight);
+	    	$thisDialog.dialog("option", "maxWidth", maxWidth);
+	    
+		parentTop = $thisDialog.parent().css("top");
+		thisHeight = $thisDialog.dialog("option", "height");
+		if ( 0 > maxHeight - thisHeight - parentTop) {
+		    if (0 < maxHeight - thisHeight) {
+                $thisDialog.parent().css( "top", maxHeight - thisHeight )
+		    } else {
+                $thisDialog.parent().css( "top", 0 )
+    		    $thisDialog.dialog("option", "height", maxHeight);
+		    }
+		}
+		parentLeft = $thisDialog.parent().css("left");
+		thisWidth = $thisDialog.dialog("option", "width");
+		if ( 0 > maxWidth - thisWidth - parentLeft) {
+		    if ( 0 < maxHeight - thisHeight) {
+                $thisDialog.parent().css("left", maxHeight - thisHeight);
+		    } else {
+                $thisDialog.parent().css("left", 0);
+    		    $thisDialog.dialog("option", "width", maxWidth);
+		    }
+		}
+    });
+}
+
+/*
+ * Updates the clock in the corner
+ */
+function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    h = addLeadingZero(h);
+    m = addLeadingZero(m);
+    $(".clock").html( h + ":" + m);
+    var t = setTimeout(function(){startTime()},60*1000);
+}
+function addLeadingZero(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
