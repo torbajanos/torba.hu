@@ -24,11 +24,11 @@
 	<icon>
 		<picture>pictures/vcard.png</picture>
 		<title>vCard</title>
-		<link>torbajanos.vcf</link>
+		<link>#torbajanos.vcf</link>
 	</icon>
 	<icon>
 		<picture>pictures/qrcodeicon.png</picture>
 		<title>QRvCard</title>
-		<link>pictures/qrcode.png</link>
+		<link>#pictures/qrcode.png</link>
 	</icon>
 </icons>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
+<icons>
+    <icon>
+        <picture>pictures/simplyrain.png</picture>
+        <title>Simply Rain</title>
+        <link>http://rain.simplynoise.com/</link>
+    </icon>
+    <icon>
+        <picture>pictures/views.png</picture>
+        <title>Kutya sétáltatás</title>
+        <link>https://goo.gl/5itQxo</link>
+    </icon>
+    <icon>
+        <picture>pictures/photosphere.png</picture>
+        <title>Viewer</title>
+        <link>http://photosphereviewer.net/</link>
+    </icon>
+    <icon>
+        <picture>pictures/youtube.png</picture>
+        <title>YouTube Download</title>
+        <link>http://rg3.github.io/youtube-dl/</link>
+    </icon>
+    <icon>
+        <picture>pictures/gtimereport.png</picture>
+        <title>Report</title>
+        <link>https://www.gtimereport.com/</link>
+    </icon>
+    <icon>
+        <picture>pictures/accuweather.png</picture>
+        <title>Eger</title>
+        <link>http://www.accuweather.com/hu/hu/eger/188467/hourly-weather-forecast/188467</link>
+    </icon>
+    <icon>
+        <picture>pictures/bookmarks.png</picture>
+        <title>2Shared</title>
+        <link>http://www.2shared.com/</link>
+    </icon>
+    <icon>
+        <picture>pictures/bookmarks.png</picture>
+        <title>SuperBoot Manager</title>
+        <link>http://www.omgubuntu.co.uk/2011/05/super-boot-manager-eases-burg-grub-plymouth-tweaking-pains</link>
+    </icon>
+    <icon>
+        <picture>pictures/bookmarks.png</picture>
+        <title>MultiBoot Loaders</title>
+        <link>http://www.thefreecountry.com/utilities/multi-boot-managers.shtml</link>
+    </icon>
+    <icon>
+        <picture>pictures/bookmarks.png</picture>
+        <title>Win 7 GRUB</title>
+        <link>
+            http://askubuntu.com/questions/135272/how-to-boot-into-windows-7-when-grub-is-installed-in-the-windows-partition
+        </link>
+    </icon>
+
+</icons>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
+<icons>
+    <icon>
+        <picture>pictures/xkcd.png</picture>
+        <title>XKCD</title>
+        <link>http://xkcd.com</link>
+    </icon>
+
+</icons>

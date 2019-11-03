@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
+<icons>
+    <icon>
+        <picture>pictures/radioeger.png</picture>
+        <title>Rádió Eger</title>
+        <link>http://radioeger.hu/</link>
+    </icon>
+    <icon>
+        <picture>pictures/prayasyougo.png</picture>
+        <title>Prayers</title>
+        <link>http://www.pray-as-you-go.org/home/</link>
+    </icon>
+    <icon>
+        <picture>pictures/palferi.png</picture>
+        <title>Pál Feri</title>
+        <link>http://www.palferi.hu/hanganyagok</link>
+    </icon>
+
+</icons>

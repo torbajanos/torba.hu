@@ -27,13 +27,13 @@
         <link>#linux.xml</link>
 	</icon>
 	<icon>
-		<picture>vicc/wakeup.png</picture>
+		<picture>galeria/vicc/wakeup.png</picture>
 		<title>Wake up</title>
-		<link>#vicc/wakeup.png</link>
+		<link>#galeria/vicc/wakeup.png</link>
 	</icon>
 	<icon>
-		<picture>vicc/Bundas macskatappancs.jpg</picture>
+		<picture>galeria/vicc/Bundas macskatappancs.jpg</picture>
 		<title>Viccek</title>
-		<link>#vicc.lightbox</link>
+		<link>#galeria/vicc.lightbox</link>
 	</icon>
 </icons>

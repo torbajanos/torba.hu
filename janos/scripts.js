@@ -9,7 +9,7 @@ $( document ).ready( function() {
             	$(this).click(shotcutClick);
             });
             startTime();
-            // loadFolder();
+            loadFolder();
             windowResize();
         });
     });
@@ -19,7 +19,7 @@ $( document ).ready( function() {
         	xCache["desktop.xml"] = xml;
             $('.desktop').html(transform(xml, xslt));
             $('.desktop').html(transform(xml, xslt)).find(".shortcut").each(function(){
-            	$(this).click(shotcutClick);
+            	$(this).click(shotcutClick).addClass("desktop-icon");
             });
         });
     });
@@ -106,6 +106,9 @@ function loadFolder(clickedElement) {
     $('a[href*="'+hashname+'"]').addClass('selected');
 
     xslt = xCache["desktop.xslt"];
+    if (xCache[hashname]) {
+    	hash = hashname;
+    }
     xml = xCache[hash];
 
 
@@ -116,39 +119,64 @@ function loadFolder(clickedElement) {
 		});
 		return;
 	}
-    if  (url.match(/.(xml|txt)$/) && ! xml ) {
+    if  (url.match(/.(xml|txt|sh|sql)$/) && ! xml ) {
 		$.get( hash, function( xml ) {
         	xCache[hash] = xml;
 			loadFolder(clickedElement);
 		});
 		return;
     }
-	// xslt is és xml is van, ha kellett
-    if  (url.match(/.xml$/)) {
-        $('<div class="parbeszedablak folder" title="'+hashname+'"></div>').appendTo($('.desktop')).html(transform(xml, xslt))
+    if  (url.match(/.(lightbox)$/) && ! xml ) {
+    	hash = hashname;
+		$.get( hash, function( xml ) {
+        	xCache[hash] = xml;
+			loadFolder(clickedElement);
+		});
+		return;
+    }
+
+	// Innen lefelé xslt is és xml is van, ha kellett
+    if  (url.match(/.(xml)$/)) {
+        $('<div class="parbeszedablak folder" title="'+hashname+'"></div>')
+        	.appendTo($('.desktop'))
+        	.html(transform(xml, xslt))
    	        .dialog(folderDialogOptions).dialogExtend(dialogExtendOptions)
    	        .find(".shortcut").each(function(){ $(this).click(shotcutClick); });
-    } else if  (url.match(/.txt$/)) {
+    } else if  (url.match(/.(txt|sh|sql)$/)) {
     	text = xml;
-        $('<div class="parbeszedablak" title="'+hashname+'"><pre>'+text+'</pre></div>').appendTo( $(".desktop") )
+        $('<div class="parbeszedablak" title="'+hashname+'"><pre>'+text+'</pre></div>')
+        	.appendTo( $(".desktop") )
         	.dialog(dialogOptions).dialogExtend(dialogExtendOptions);
     } else if (url.match(/(png|gif|jpg|jpeg)$/)) {
-        $('<div class="parbeszedablak" title="'+hashname+'"><img class="viewed-image" src="'+hash+'" /></div>').appendTo( $(".desktop") )
+
+        /*$('<div class="parbeszedablak" title="'+hashname+'">'+
+        	'<img class="viewed-image" src="'+hash+'" />'+
+         '</div>')
+        	.appendTo( $(".desktop") )
         	.dialog(dialogOptions).dialogExtend(dialogExtendOptions);
-    } else if (url.match(/.lightbox$/)) {
+        	*/
+    } else if (url.match(/.(lightbox)$/)) {
     	html = xml;
         $('.hidden').html(html);
-        gallery = $('<div class="parbeszedablak gallery" title="'+hashname+' galeria"></div>').appendTo( $('.desktop') )
-            .dialog(dialogOptions).dialogExtend(dialogExtendOptions);
+        $gallery = $('<div class="parbeszedablak gallery" title="'+hashname+'"></div>');
+        $gallery
+        	.appendTo( $('.desktop') )
+            .dialog(dialogOptions)
+            .dialogExtend(dialogExtendOptions);
         $(".hidden a").each( function(i, a) {
         	h = hash+"/"+$(a).attr("href");
             if (h.match(/(png|gif|jpg|jpeg)$/i)) {
-				$( gallery ).append('<a data-lightbox="gallery" href="'+h+'"><img class="thumbnail" src="'+h+'" /></a>');
+				$gallery.append(
+					'<a data-lightbox="'+hashname+'gallery" href="'+h+'">'+
+						'<img class="thumbnail" src="'+h+'" />'+
+					'</a>'
+				);
             }
         });
     } else {
-    	alert("Shortcut to unknown filetype.");
-        $('<div class="parbeszedablak folder" title="Error">Shortcut to unknown filetype ('+hash+').</div>').appendTo($('.desktop'))
+    	
+        $('<div class="parbeszedablak folder" title="Redirecting">'+hash+'</div>')
+        	.appendTo($('.desktop'))
    	        .dialog(folderDialogOptions)
    	}
 }
