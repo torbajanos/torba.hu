@@ -43,7 +43,11 @@ $( document ).ready( function() {
 });
 function shotcutClick() {
 	clickedElement = this;
-	loadFolder(clickedElement);
+	if ($(clickedElement).attr('href') == "#desktop.xml") {
+    	$.each($('.ui-dialog-content'),function(i,d){$(d).dialog('close').remove();});
+	} else {
+    	loadFolder(clickedElement);
+	}
 }
 xCache = {};
 
@@ -82,7 +86,7 @@ dialogExtendOptions = {
     "collapsable" : false,
     "dblclick" : "maximize", // set action on double click. false, 'maximize', 'minimize', 'collapse'
     // "titlebar" : "transparent", // false, 'none', 'transparent'
-    "minimizeLocation" : "right", // sets alignment of minimized dialogues
+    "minimizeLocation" : "left", // sets alignment of minimized dialogues
     "icons" : { // jQuery UI icon class
         "close" : "ui-icon-circle-close",
         "maximize" : "ui-icon-circle-plus",
@@ -193,9 +197,9 @@ function loadFolder(clickedElement) {
     	if (hash == window.location.href) {
     	    return;
     	}
-        $('<div class="parbeszedablak folder" title="Redirecting">'+hash+'</div>')
-        	.appendTo($('.desktop'))
-   	        .dialog(folderDialogOptions)
+//        $('<div class="parbeszedablak folder" title="Redirecting">'+hash+'</div>')
+//        	.appendTo($('.desktop'))
+//   	        .dialog(folderDialogOptions);
    	}
 }
 function transform(xml, xsl) {

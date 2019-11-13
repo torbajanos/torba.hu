@@ -78,7 +78,7 @@ body {
 	display: block;
 }
 .taskbar .clock-button {
-	float: left;
+	float: right;
 }
 .taskbar .button img {
 	width: 24px;

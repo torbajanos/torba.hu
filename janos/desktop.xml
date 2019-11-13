@@ -26,6 +26,11 @@
         <title>Downloads</title>
         <link>#downloads.xml</link>
     </icon>
+    <icon>
+        <picture>pictures/system.png</picture>
+        <title>System</title>
+        <link>#system.xml</link>
+    </icon>
     <!--
         <icon>
             <picture>pictures/kerekmagyarzaszlo.png</picture>

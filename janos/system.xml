@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="desktop.xslt"?>
+<icons>
+	<icon>
+		<picture>pictures/home.png</picture>
+		<title>Home</title>
+		<link>#desktop.xml</link>
+	</icon>
+	<icon>
+		<picture>pictures/turnoff.png</picture>
+		<title>Logout</title>
+		<link>..</link>
+	</icon>
+</icons>
