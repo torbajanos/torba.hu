@@ -14,7 +14,7 @@
     <icon>
         <picture>pictures/bookmarks.png</picture>
         <title>Bookmarks</title>
-        <link>#bookmarks.xml</link>
+        <link>bookmarks.html</link>
     </icon>
     <icon>
         <picture>pictures/thankyou.png</picture>

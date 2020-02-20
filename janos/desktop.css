@@ -6,6 +6,7 @@ html {
 }
 body {
     overflow:hidden;
+    font-family: arial;
 }
 /* fix */
 .ui-dialog, .ui-dialog-content {
@@ -56,7 +57,7 @@ body {
 .button  , .button   :link, .button   :visited, .button   :hover, .button   :active {
 	color: black;
 	text-decoration: none;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 .taskbar {
