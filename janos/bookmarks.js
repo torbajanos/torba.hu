@@ -3,7 +3,7 @@ $( document ).ready( function() {
     maxHeight = $(window).height() - $(".taskbar").height() - 2 * paddingDialog;
     maxWidth = $(window).width() - 2 * paddingDialog;
 
-    $.get( "bookmarks_2020-02-12.html", function( data ) {
+    $.get( "bookmarks_2020-02-20.html", function( data ) {
         $( "body" ).append('<div class="bookmark-manager-dialog" title="My Bookmarks">'
 +'<table class="bookmark-manager"><tr>'
 +'<th><div class="folder-tree aligned"></div></th><td><div class="folder-view aligned"></div></td>'
