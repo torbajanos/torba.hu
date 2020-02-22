@@ -15,7 +15,7 @@ $( document ).ready( function() {
             	$(this).click(function(){
             	    // mind bezárása
             	    $(".parbeszedablak").each(function(){
-            	        $(this).dialog("destroy").remove();;
+            	        $(this).dialog("destroy").remove();
             	    });
             	});
             });
@@ -100,6 +100,14 @@ dialogExtendOptions = {
 }
 
 function loadFolder(clickedElement) {
+    /*if (clickedElement) {
+        url = clickedElement.href;
+        urlFolders =url.split(/\//);
+        if ( urlFolders[urlFolders.length-1] == "bookmarks-dialog") {
+       	    openBookmarkDialog();
+       	    return false;
+        }
+    }*/
     if ( clickedElement ) {
         url = clickedElement.href;
     } else {
@@ -144,6 +152,10 @@ function loadFolder(clickedElement) {
         	xCache[hash] = xml;
 			loadFolder(clickedElement);
 		});
+		return;
+    }
+    if  (url.match(/.(folder)$/) && ! xml ) {
+    	openBookmarkDialog();
 		return;
     }
 

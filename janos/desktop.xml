@@ -14,7 +14,7 @@
     <icon>
         <picture>pictures/bookmarks.png</picture>
         <title>Bookmarks</title>
-        <link>bookmarks.html</link>
+        <link>#bookmarks.folder</link>
     </icon>
     <icon>
         <picture>pictures/thankyou.png</picture>
