@@ -1,18 +1,31 @@
+.folder h3 {
+    margin-top: unset !important;
+    margin-bottom: unset !important;
+    line-height: unset !important;
+    color: unset !important;
+    -webkit-margin-before: unset !important;
+    -webkit-margin-after: unset !important;
+    -webkit-margin-start: unset !important;
+    -webkit-margin-end: unset !important;
+}
+.folder h3 {
+    /* border: 1px solid black; */
+}
 .folder { width: 100%; height: 100%; overflow: auto; }
-.folder > .tree { width: 30%; }
-.folder > .tree h1 { display: none; /* Bookmarks */ }
-.folder > .tree h3 { margin: 0; padding: 8px; /* mappak nevei */ }
-.folder > .tree > dl > dt > h3 { margin-left: 0; /* mappa nev */ }
-.folder > .tree > dl > dt > dl > dt > h3 { margin-left: 32px; /* almappa nev */ }
-.folder > .tree a  { display: none; }
-.folder > .tree p  { display: none; }
+.folder > .tree { width: 30%; min-width: 220px; }
 .folder > .view { width: 68%; }
-.folder > .view h1 { display: none; /* Bookmarks */ }
-.folder > .view > h3 { display: none; /* mappa nev */ }
-.folder > .view > dl > dt > h3 { /* almappa */ }
-.folder > .view > dl > dt > dl > dt > a { display: none; /* almappa linkjei */ }
+.folder h1/* Bookmarks */, .folder > .tree a  /* links */, .folder > .tree p /* ? */, .folder > .view > h3 { display: none; }
+.folder h3:hover, .folder a:hover { background-color: #AAAAFF; color: white; }
+.folder .selected { background-color: #7777FF; color: white; }
+
+.folder h3                               { margin: 0; padding: 2px; min-width: 200px; }
+.folder dl > dt   h3                     { margin-left: 0;}
+.folder dl > dt > dl > dt   h3           { margin-left: 32px;}
+.folder dl > dt > dl > dt > dl > dt   h3 { margin-left: 64px;}
+
+.folder > .view > dl > dt > dl > dt   a { display: none; /* almappa linkjei */ }
 .folder > .view a { display: block; padding-top: 8px; text-decoration: none; }
-.folder > .tree h3:hover, .folder .view a:hover { background-color: #AAAAFF; color: white; }
-.folder > .tree, .folder .view { float: left; height: 100%; overflow-x: hidden; overflow-y: scroll; }
+.folder > .tree { float: left; height: 100%; overflow-x: hidden; overflow-y: scroll; }
+.folder .view { float: left; height: 100%; overflow-x: hidden; overflow-y: auto; }
 .icon-mini,  .icon-missing, .icon-folder  { width: 16px; height: 16px; margin: 0 8px; display: block; float: left; }
 .icon-folder { background-image: url('pictures/bookmarks.png'); background-size: 16px; }

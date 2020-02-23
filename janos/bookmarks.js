@@ -1,6 +1,6 @@
 function openBookmarkDialog() {
     paddingDialog = 40;
-    maxHeight = $(window).height() - $(".taskbar").height() - 2 * paddingDialog;
+    maxHeight = $(window).height() - $(".taskbar").height() - 4 * paddingDialog;
     maxWidth = $(window).width() - 2 * paddingDialog;
 
     $.get( "bookmarks.html", function( data ) {
@@ -17,11 +17,13 @@ function openBookmarkDialog() {
         },
         height: maxHeight,
         width: maxWidth,
-        position: { my: "center top", at: "center top+"+paddingDialog, of: "html" },
+        position: { my: "center top", at: "center top+"+(paddingDialog * 3), of: "html" },
     });
         $( ".folder .tree" ).html( data );
         $( ".folder .tree h3" ).each(function(ih3,h3){ $(h3).prepend('<div class="icon-folder"></div>'); });
         $( ".folder .tree h3" ).click( function(){
+             $( ".folder .tree h3" ).removeClass("selected");
+             $( this ).addClass("selected");
              $( ".folder .view" ).html( $(this).parent().html() );
              $( ".folder .view a" ).each( function( i, e ) {
                   $(e).attr('target', "_blank");
@@ -35,7 +37,7 @@ function openBookmarkDialog() {
                 $( ".folder .tree h3:contains('" +$(this).text() +"')" ).click();
              });
         });
-        $( ".folder .tree h3:eq(1)" ).click();
+        $( ".folder .tree h3:eq("+ ( 5-1 ) +")" ).click();
     });
 }
 function openSubFolder() {
